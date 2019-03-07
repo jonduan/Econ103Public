@@ -46,17 +46,11 @@ When the bag and scale reach you, do the following:
 \begin{frame}
 \frametitle{Random Sample}
 
-\begin{block}{In Words}
-Select sample of $n$ objects from  population so that:
-	\begin{enumerate}
-\item Each member of the population has the same probability of being selected 
-\item The fact that one individual is selected does not affect the chance that any other individual is selected
-\item Each sample of size $n$ is equally likely to be selected
-
-\end{enumerate}
+\begin{block}{Verbal Definition from Lecture \#1}
+Each member of population is chosen strictly by chance, so that: (1) selection of one individual doesn't influence selection of any other, (2) each individual is just as likely to be chosen, (3) every possible sample of size $n$ has the same chance of selection.
 \end{block}
 
-\begin{alertblock}{In Math}
+\begin{alertblock}{Mathematical Definition}
 	$X_1, X_2, \hdots, X_n \sim \mbox{iid } f(x)$ if continuous\\
   $X_1, X_2, \hdots, X_n \sim \mbox{iid } p(x)$ if discrete
 \end{alertblock}
@@ -69,9 +63,8 @@ Select sample of $n$ objects from  population so that:
 
 
 \begin{itemize}
-  \item Without replacement $\Rightarrow$ dependence between samples
-  \item Sample small relative to popn.\ $\Rightarrow$ dependence negligible.
-  \item This means our candy experiment (in progress) isn't bogus.
+  \item Sampling \emph{without replacement} creates dependence between samples (Extension Problem \#11).
+  \item But if the population is large relative to the sample, this dependence is negligible: candy experiment isn't bogus!
 \end{itemize}
 \end{frame}
 
@@ -79,13 +72,68 @@ Select sample of $n$ objects from  population so that:
 
 \begin{frame}
 \frametitle{Example: Sampling from Econ 103 Class List}
-\begin{center}
-\includegraphics[scale = 0.4]{./images/height_hist}
-\end{center}
-\alert{Use R to illustrate the in an example where we \emph{know} the population.  
-Can't do this in the real applications, but simulate it on the computer\dots}
+
+\begin{itemize}
+  \item Pretend the students in this class are a population of interest.
+  \item What is the population mean height?
+  \item In reality I know this since I know all of your heights!
+  \item Suppose I didn't: I could take a random sample of $n$ students and use the sample mean to estimate the population mean.
+  \item I know all of your heights, so I can simulate this in R. 
+\end{itemize}
+
+\alert{Use this idea to explore the properties of random sampling\dots}
+
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example: Sampling from the Econ 103 Class List}
+  \footnotesize
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{survey} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(}\hlstr{'http://ditraglia.com/econ103/old_survey.csv'}\hlstd{)}
+\hlstd{height} \hlkwb{<-} \hlkwd{na.omit}\hlstd{(survey}\hlopt{$}\hlstd{height)}
+\hlkwd{hist}\hlstd{(height,} \hlkwc{freq} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{xlab} \hlstd{=} \hlstr{''}\hlstd{,}
+     \hlkwc{main} \hlstd{=} \hlstr{'Population Dist. of Height (inches)'}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/pop_hist-1} 
+
+\end{knitrout}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \footnotesize
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# What is the population mean?}
+\hlkwd{mean}\hlstd{(height)}
+\end{alltt}
+\begin{verbatim}
+## [1] 67.54545
+\end{verbatim}
+\begin{alltt}
+\hlcom{# Draw a random sample of n = 5 and compute the sample mean}
+\hlkwd{set.seed}\hlstd{(}\hlnum{3827}\hlstd{)}
+\hlstd{random_sample} \hlkwb{<-} \hlkwd{sample}\hlstd{(height,} \hlnum{5}\hlstd{,} \hlkwc{replace} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlstd{random_sample}
+\end{alltt}
+\begin{verbatim}
+## [1] 65 75 69 71 60
+\end{verbatim}
+\begin{alltt}
+\hlkwd{mean}\hlstd{(random_sample)}
+\end{alltt}
+\begin{verbatim}
+## [1] 68
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{frame}
 \frametitle{Sampling Distribution of $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$}
@@ -139,16 +187,96 @@ Can't do this in the real applications, but simulate it on the computer\dots}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Height of Econ 103 Students}
-\begin{figure}
-\includegraphics[scale = 0.4]{./images/height_hist}
-\includegraphics[scale = 0.4]{./images/height_mean_n_5}
-\caption{Left: Population, Right: Sampling distribution of $\bar{X}_5$}
-\end{figure}
+\begin{frame}[fragile]
+  \footnotesize
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}\hlstd{(}\hlnum{2985}\hlstd{)}
+\hlcom{# Function: take a random sample of size n, compute sample mean}
+\hlstd{draw_xbar} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{n}\hlstd{) \{}
+  \hlstd{random_sample} \hlkwb{<-} \hlkwd{sample}\hlstd{(height,} \hlkwc{size} \hlstd{= n,} \hlkwc{replace} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+  \hlkwd{mean}\hlstd{(random_sample)}
+\hlstd{\}}
+\hlcom{# Calculate the mean of 10000 random samples with n = 5}
+\hlstd{M} \hlkwb{<-} \hlnum{10000}
+\hlstd{xbar_5} \hlkwb{<-} \hlkwd{replicate}\hlstd{(M,} \hlkwd{draw_xbar}\hlstd{(}\hlnum{5}\hlstd{))}
+\hlcom{# Compare simulated sample means to population mean: 67.5454 in.}
+\hlkwd{head}\hlstd{(xbar_5)}
+\end{alltt}
+\begin{verbatim}
+## [1] 64.8 66.4 68.2 68.6 65.4 71.2
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
 
+  \footnotesize
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Compare popn. dist. of height to histogram of the simulated x-bars}
+\hlkwd{par}\hlstd{(}\hlkwc{mfrow} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{2}\hlstd{))}
+\hlkwd{hist}\hlstd{(height,} \hlkwc{freq} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{main} \hlstd{=} \hlstr{'Population'}\hlstd{)}
+\hlkwd{hist}\hlstd{(xbar_5,} \hlkwc{freq} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{main} \hlstd{=} \hlstr{'Sampling Dist. of Xbar (n = 5)'}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/pop_vs_sampling5_hist-1} 
+\begin{kframe}\begin{alltt}
+\hlkwd{par}\hlstd{(}\hlkwc{mfrow} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{1}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \footnotesize
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Population mean height}
+\hlkwd{mean}\hlstd{(height)}
+\end{alltt}
+\begin{verbatim}
+## [1] 67.54545
+\end{verbatim}
+\begin{alltt}
+\hlcom{# Mean of sampling dist. of x-bar (n = 5)}
+\hlkwd{mean}\hlstd{(xbar_5)}
+\end{alltt}
+\begin{verbatim}
+## [1] 67.56044
+\end{verbatim}
+\begin{alltt}
+\hlcom{# Population variance}
+\hlkwd{var}\hlstd{(height)}
+\end{alltt}
+\begin{verbatim}
+## [1] 19.74504
+\end{verbatim}
+\begin{alltt}
+\hlcom{# Variance of sampling dist of x-bar (n = 5)}
+\hlkwd{var}\hlstd{(xbar_5)}
+\end{alltt}
+\begin{verbatim}
+## [1] 3.573168
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}
+%\frametitle{Height of Econ 103 Students}
+%\begin{figure}
+%\includegraphics[scale = 0.4]{./images/height_hist}
+%\includegraphics[scale = 0.4]{./images/height_mean_n_5}
+%\caption{Left: Population, Right: Sampling distribution of $\bar{X}_5$}
+%\end{figure}
+%\end{frame}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Histograms of sampling distribution of sample mean $\bar{X}_n$}
@@ -200,7 +328,56 @@ $n$&Mean&Variance\\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Sampling Distributions}
+\section{Unbiasedness of Sample Mean}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{$X_1,\hdots, X_{9} \sim \mbox{ iid }$ with $\mu=5$, $\sigma^2 =36$. \hfill\includegraphics[scale = 0.05]{./images/clicker}}
+%
+%\large Calculate:
+%	 $$E(\bar{X}) = E\left[\frac{1}{9}(X_1 + X_2 + \hdots + X_{9})\right]$$
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Mean of Sampling Distribution of $\bar{X}_n$}
+\alert{$X_1, \hdots, X_n \sim \mbox{iid with mean }\mu$}
+\begin{eqnarray*}
+E[\bar{X_n}] = E\left[ \frac{1}{n}\sum_{i=1}^n X_i \right]\pause = \frac{1}{n} \sum_{i=1}^n E[X_i] = \pause\frac{1}{n} \sum_{i=1}^n \mu = \pause \frac{n\mu}{n} = \mu
+\end{eqnarray*}
+\alert{Hence, sample mean is ``correct on average.'' The formal term for this is \emph{unbiased}.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Standard Error of the Mean}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{$X_1,\hdots, X_{9} \sim \mbox{ iid }$ with $\mu=5$, $\sigma^2 = 36$. \hfill\includegraphics[scale = 0.05]{./images/clicker}}
+%
+%\large Calculate:
+%	 $$Var(\bar{X}) = Var\left[\frac{1}{9}(X_1 + X_2 + \hdots + X_{9})\right]$$
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Variance of Sampling Distribution of $\bar{X}_n$}
+\alert{$X_1, \hdots, X_n \sim \mbox{iid with mean }\mu \mbox{ and variance } \sigma^2$}
+\begin{eqnarray*}
+Var[\bar{X_n}] &=& Var\left[ \frac{1}{n}\sum_{i=1}^n X_i \right] \pause= \frac{1}{n^2} \sum_{i=1}^n Var(X_i) \\
+&=& \pause \frac{1}{n^2} \sum_{i=1}^n \sigma^2 = \pause \frac{n\sigma^2}{n^2} =  \frac{\sigma^2}{n}
+\end{eqnarray*}
+
+\alert{The sampling variance of $\bar{X}_n$ \emph{decreases linearly with sample size}.}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Standard Error}
+Std. Dev.\ of a sampling distribution is called a \alert{standard error}.
+\begin{block}{Standard Error of the Sample Mean}
+$SE(\bar{X}_n)= \sqrt{Var\left(\bar{X}_n\right)}= \sqrt{\sigma^2/n}=\sigma/\sqrt{n}$
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Some More Intuition for Sampling Distributions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Step 1: Population as RV rather than List of Objects}
@@ -254,16 +431,16 @@ $n$&Mean&Variance\\
   \end{block}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{What does the population imply about the sample? \hfill\includegraphics[scale = 0.05]{./images/clicker}}
-Suppose that exactly half of US voters chose Hillary Clinton in the 2016 election.
-If you poll a random sample of 4 voters, what is the probability that \emph{exactly half} were Hillary supporters? 
-
-\pause
-
-\alert{$${4 \choose 2} \left( 1/2 \right)^2 \left( 1/2 \right)^2 = 3/8 = 0.375$$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%  \frametitle{What does the population imply about the sample? \hfill\includegraphics[scale = 0.05]{./images/clicker}}
+%Suppose that exactly half of US voters chose Hillary Clinton in the 2016 election.
+%If you poll a random sample of 4 voters, what is the probability that \emph{exactly half} were Hillary supporters? 
+%
+%\pause
+%
+%\alert{$${4 \choose 2} \left( 1/2 \right)^2 \left( 1/2 \right)^2 = 3/8 = 0.375$$}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{The rest of the probabilities\dots}
   Suppose that exactly half of US voters plan to vote for Hillary Clinton and we poll a random sample of 4 voters.
@@ -296,7 +473,9 @@ If you poll a random sample of 4 voters, what is the probability that \emph{exac
 \begin{frame}
   \frametitle{(Sample) Statistic}
 
-  Any function of the data \emph{alone}, e.g.\ sample mean $\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i$. Typically used to estimate an unknown population parameter: e.g.\ $\bar{x}$ is an estimate of $\mu$.
+  Any function of the data \emph{alone}, e.g.\ sample mean $\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i$. 
+  Used to estimate a population parameter: e.g.\ $\bar{x}$ estimates of
+  $\mu$.
 
 \end{frame}
 
@@ -307,20 +486,20 @@ If you poll a random sample of 4 voters, what is the probability that \emph{exac
   \alert{This is \emph{the crucial point of the course}: if we draw a random sample, the dataset we get is random. Since a statistic is a function of the data, it is a random variable!} 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{A Sample Statistic in the Polling Example \hfill\includegraphics[scale = 0.05]{./images/clicker}}
-  Suppose that exactly half of voters in the population support Hillary Clinton and we poll a random sample of 4 voters. If we code Hillary supporters as ``1'' and everyone else as ``0'' then what are the possible values of the sample mean in our dataset?
-
-  \vspace{1em}
-  \begin{enumerate}[(a)]
-    \item $(0,1)$
-    \item $\left\{ 0, 0.25, 0.5, 0.75, 1 \right\}$
-    \item $\left\{ 0,1,2,3,4 \right\}$
-    \item $(-\infty, \infty)$
-    \item Not enough information to determine.
-  \end{enumerate}
-
-\end{frame}
+%\begin{frame}
+%  \frametitle{A Sample Statistic in the Polling Example \hfill\includegraphics[scale = 0.05]{./images/clicker}}
+%  Suppose that exactly half of voters in the population support Hillary Clinton and we poll a random sample of 4 voters. If we code Hillary supporters as ``1'' and everyone else as ``0'' then what are the possible values of the sample mean in our dataset?
+%
+%  \vspace{1em}
+%  \begin{enumerate}[(a)]
+%    \item $(0,1)$
+%    \item $\left\{ 0, 0.25, 0.5, 0.75, 1 \right\}$
+%    \item $\left\{ 0,1,2,3,4 \right\}$
+%    \item $(-\infty, \infty)$
+%    \item Not enough information to determine.
+%  \end{enumerate}
+%
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Sampling Distribution}
@@ -381,54 +560,6 @@ If you poll a random sample of 4 voters, what is the probability that \emph{exac
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Unbiasedness of Sample Mean}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}
-%\frametitle{$X_1,\hdots, X_{9} \sim \mbox{ iid }$ with $\mu=5$, $\sigma^2 =36$. \hfill\includegraphics[scale = 0.05]{./images/clicker}}
-%
-%\large Calculate:
-%	 $$E(\bar{X}) = E\left[\frac{1}{9}(X_1 + X_2 + \hdots + X_{9})\right]$$
-%\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Mean of Sampling Distribution of $\bar{X}_n$}
-\alert{$X_1, \hdots, X_n \sim \mbox{iid with mean }\mu$}
-\begin{eqnarray*}
-E[\bar{X_n}] = E\left[ \frac{1}{n}\sum_{i=1}^n X_i \right]\pause = \frac{1}{n} \sum_{i=1}^n E[X_i] = \pause\frac{1}{n} \sum_{i=1}^n \mu = \pause \frac{n\mu}{n} = \mu
-\end{eqnarray*}
-\alert{Hence, sample mean is ``correct on average.'' The formal term for this is \emph{unbiased}.}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Standard Error of the Mean}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}
-%\frametitle{$X_1,\hdots, X_{9} \sim \mbox{ iid }$ with $\mu=5$, $\sigma^2 = 36$. \hfill\includegraphics[scale = 0.05]{./images/clicker}}
-%
-%\large Calculate:
-%	 $$Var(\bar{X}) = Var\left[\frac{1}{9}(X_1 + X_2 + \hdots + X_{9})\right]$$
-%\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Variance of Sampling Distribution of $\bar{X}_n$}
-\alert{$X_1, \hdots, X_n \sim \mbox{iid with mean }\mu \mbox{ and variance } \sigma^2$}
-\begin{eqnarray*}
-Var[\bar{X_n}] &=& Var\left[ \frac{1}{n}\sum_{i=1}^n X_i \right] \pause= \frac{1}{n^2} \sum_{i=1}^n Var(X_i) \\
-&=& \pause \frac{1}{n^2} \sum_{i=1}^n \sigma^2 = \pause \frac{n\sigma^2}{n^2} =  \frac{\sigma^2}{n}
-\end{eqnarray*}
-
-\alert{Hence the variance of the sample mean \emph{decreases linearly with sample size}.}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Standard Error}
-Std. Dev.\ of estimator's sampling dist.\ is called \alert{standard error}.
-\begin{block}{Standard Error of the Sample Mean}
-$SE(\bar{X}_n)= \sqrt{Var\left(\bar{X}_n\right)}= \sqrt{\sigma^2/n}=\sigma/\sqrt{n}$
-\end{block}
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{frame}
 %\frametitle{More Generally and More Formally:}

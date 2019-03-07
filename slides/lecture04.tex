@@ -38,21 +38,30 @@
 \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Regression: ``Best Fitting'' Line Through Cloud of Points}
-\begin{figure}
-	\includegraphics[scale = 0.48]{./images/midterms5}
-\end{figure}
+\begin{frame}[fragile]
+  \frametitle{Regression: ``Best Fitting'' Line Through Cloud of Points}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/plot_exams-1} 
+
+\end{knitrout}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{Regression: ``Best Fitting'' Line Through Cloud of Points}
+%\begin{figure}
+%	\includegraphics[scale = 0.48]{./images/midterms5}
+%\end{figure}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-
-\centering \Huge Fitting a Line by Eye
-
-
-\end{frame}
-
+%\begin{frame}
+%
+%\centering \Huge Fitting a Line by Eye
+%
+%
+%\end{frame}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -93,12 +102,12 @@
 \section{Deriving the Regression Equations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-
-\centering \Huge But How to Do this Formally?
-
-
-\end{frame}
+%\begin{frame}
+%
+%\centering \Huge But How to Do this Formally?
+%
+%
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Least Squares Regression -- Predict Using a Line}
@@ -121,7 +130,8 @@ $\displaystyle\sum_{i = 1}^n d_i^2 = \sum_{i=1}^n (y_i - a - b x_i)^2$
   $$\boxed{\underset{a,b}{\mbox{minimize }}\sum_{i = 1}^n d_i^2 = \sum_{i=1}^n (y_i - a - b x_i)^2}$$
 			$$\boxed{\hat{y} = a + bx}$$
 		\begin{itemize}
-		\item $(x_i, y_i)_{i=1}^n$ are the \alert{observed data}
+      \item $(a,b)$ are our \alert{choice variables}
+		\item $(x_1, y_1), \dots, (x_n, y_n)$ are the \alert{observed data}
 		\item $\widehat{y}$ is our \alert{prediction} for a given value of $x$
 		\item Neither $x$ nor $\widehat{y}$ needs to be in out dataset!
 	\end{itemize}
@@ -141,29 +151,41 @@ $\displaystyle\sum_{i = 1}^n d_i^2 = \sum_{i=1}^n (y_i - a - b x_i)^2$
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
+	\frametitle{\href{https://fditraglia.shinyapps.io/regression/}{https://fditraglia.shinyapps.io/regression/}}
+
 \begin{figure}
-	\includegraphics[scale = 0.48]{./images/SS1}
+	\fbox{\includegraphics[scale = 0.25]{./images/regression_screenshot}}
 \end{figure}
+
+\alert{Try choosing $(a,b)$ to minimize the sum of squared vertical deviations\dots}
+
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\begin{figure}
-	\includegraphics[scale = 0.48]{./images/SS2}
-\end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\begin{figure}
-	\includegraphics[scale = 0.48]{./images/SS3}
-\end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\begin{figure}
-	\includegraphics[scale = 0.48]{./images/SS4}
-\end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%\begin{figure}
+%	\includegraphics[scale = 0.48]{./images/SS1}
+%\end{figure}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\begin{figure}
+%	\includegraphics[scale = 0.48]{./images/SS2}
+%\end{figure}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\begin{figure}
+%	\includegraphics[scale = 0.48]{./images/SS3}
+%\end{figure}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\begin{figure}
+%	\includegraphics[scale = 0.48]{./images/SS4}
+%\end{figure}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{frame}
 %\frametitle{Prediction given 89 on Midterm 1? \hfill \includegraphics[scale = 0.05]{./images/clicker} }
 %\begin{figure}
@@ -171,13 +193,67 @@ $\displaystyle\sum_{i = 1}^n d_i^2 = \sum_{i=1}^n (y_i - a - b x_i)^2$
 %\end{figure}
 %\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Prediction given 89 on Midterm 1? }
-\begin{figure}
-	\includegraphics[scale = 0.38]{./images/midterms5}
-	$$\alert{32 + 0.6 \times 89 = 32 + 53.4 = 85.4}$$
-\end{figure}
+\begin{frame}[fragile]
+  \frametitle{Running the Regression in R}
+
+  \small
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Read data}
+\hlstd{data_url} \hlkwb{<-} \hlstr{'http://ditraglia.com/econ103/midterms.csv'}
+\hlstd{exams} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(data_url)}
+
+\hlcom{# Drop students who missed an exam}
+\hlstd{exams} \hlkwb{<-} \hlkwd{na.omit}\hlstd{(exams)}
+
+\hlcom{# Run the regression and display the slope and intercept}
+\hlstd{reg} \hlkwb{<-} \hlkwd{lm}\hlstd{(Midterm2} \hlopt{~} \hlstd{Midterm1,} \hlkwc{data} \hlstd{= exams)}
+\hlkwd{coef}\hlstd{(reg)}
+\end{alltt}
+\begin{verbatim}
+## (Intercept)    Midterm1 
+##  32.5745441   0.6130357
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Predicting Midterm 2 Given 89 on Midterm 1}
+  \small
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# By hand}
+\hlnum{32.5745441} \hlopt{+} \hlnum{0.6130357} \hlopt{*} \hlnum{89}
+\end{alltt}
+\begin{verbatim}
+## [1] 87.13472
+\end{verbatim}
+\begin{alltt}
+\hlcom{# Using predict()}
+\hlstd{missing_student} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(}\hlkwc{Midterm1} \hlstd{=} \hlnum{89}\hlstd{)}
+\hlkwd{predict}\hlstd{(reg,} \hlkwc{newdata} \hlstd{= missing_student)}
+\end{alltt}
+\begin{verbatim}
+##        1 
+## 87.13472
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{Prediction given 89 on Midterm 1? }
+%\begin{figure}
+%	\includegraphics[scale = 0.38]{./images/midterms5}
+%	$$\alert{32 + 0.6 \times 89 = 32 + 53.4 = 85.4}$$
+%\end{figure}
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -216,6 +292,10 @@ $$\displaystyle \min_{a,b}  \sum_{i=1}^n (y_i - a - b x_i)^2$$
  \Huge
 \begin{equation*}\boxed{\bar{y} = a + b\bar{x}}\end{equation*}
 \normalsize
+
+\vspace{1em}
+
+\alert{If your score equaled the class average on Midterm \#1, we predict that your score will equal the class average on Midterm \#2.}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -266,29 +346,16 @@ Correlation is unitless, covariance and regression coefficients ($a, b$) are not
 
 
 \begin{block}{Symmetry}
-Correlation and covariance are symmetric, regression isn't. (Switching $x$ and $y$ axes changes the slope and intercept.)
+Correlation and covariance are symmetric, regression isn't. (Switching $x$ and $y$  $a$ and $b$: Review Exercise.)
 \end{block}
 
-\begin{block}{On the Homework}
+\begin{block}{Extension Problem}
 Regression with z-scores rather than raw data gives $a=0, b = r_{xy}$
 \end{block}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
-
-$\begin{array}{ccccc} s_{xy} = 6,&s_x = 5,& s_y = 2,& \bar{x} = 68,& \bar{y} = 21\end{array}$
-\begin{columns}[c]
-\column{2.5in}
-What is the sample correlation between height ($x$) and handspan ($y$)?
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/height_handspan1}
-\end{columns}
-\alert{$$\phantom{r = \frac{s_{xy}}{s_x s_y} = \frac{6}{4.5\times 2.2} \approx 0.6}$$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
 $\begin{array}{ccccc} s_{xy} = 6,&s_x = 5,& s_y = 2,& \bar{x} = 68,& \bar{y} = 21\end{array}$
@@ -298,22 +365,13 @@ What is the sample correlation between height ($x$) and handspan ($y$)?
 \column{1.8in}
 \includegraphics[scale = 0.4]{./images/height_handspan_zline}
 \end{columns}
+
+\pause
+
 \alert{$$r = \frac{s_{xy}}{s_x s_y} = \frac{6}{5\times 2} = 0.6$$}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
-$\begin{array}{ccccc} s_{xy} = 6,&s_x = 5,& s_y = 2,& \bar{x} = 68,& \bar{y} = 21\end{array}$
-\begin{columns}[c]
-\column{2.5in}
-What is the value of $b$ for the regression: $$\hat{y}=a+bx$$
-where $x$ is height and $y$ is handspan?
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/height_handspan1}
-\end{columns}
-\alert{$$\phantom{b = \frac{s_{xy}}{s_x^2} = \frac{6}{(4.5)^2} = 6/20.25 \approx 0.3}$$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
 \frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
 $\begin{array}{ccccc} s_{xy} = 6,&s_x = 5,& s_y = 2,& \bar{x} = 68,& \bar{y} = 21\end{array}$
@@ -324,21 +382,12 @@ where $x$ is height and $y$ is handspan?
 \column{1.8in}
 \includegraphics[scale = 0.4]{./images/height_handspan2}
 \end{columns}
+
+\pause
+
 \alert{$$b = \frac{s_{xy}}{s_x^2} = \frac{6}{5^2} = 6/25 = 0.24 $$}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
-$\begin{array}{ccccc} s_{xy} = 6,&s_x = 5,& s_y = 2,& \bar{x} = 68,& \bar{y} = 21\end{array}$
-\begin{columns}[c]
-\column{2.5in}
-What is the value of $a$ for the regression: $$\hat{y}=a+bx$$
-where $x$ is height and $y$ is handspan? (prev.\ slide $b = 0.24$)
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/height_handspan1}
-\end{columns}
-\alert{$$\phantom{a = \bar{y} - b \bar{x} = 20.6 - 0.297 \times 67.6 \approx 0.5}$$}
-\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
@@ -350,64 +399,80 @@ where $x$ is height and $y$ is handspan? (prev.\ slide $b = 0.24$)
 \column{1.8in}
 \includegraphics[scale = 0.4]{./images/height_handspan2}
 \end{columns}
+
+\pause
+
 \alert{$$a = \bar{y} - b \bar{x} = 21 - 0.24 \times 68 = 4.68 $$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
-\alert{$\begin{array}{ccccc} s_{xy} = 6,&s_y = 5,& s_x = 2,& \bar{y} = 68,& \bar{x} = 21\end{array}$}
-\begin{columns}[c]
-\column{2.5in}
-What is the value of $b$ for the regression: $$\hat{y}=a+bx$$
-where \alert{$x$ is handspan and $y$ is height? }
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/handspan_height}
-\end{columns}
-\alert{$$\phantom{b = \frac{s_{xy}}{s_x^2} = 6 /2.2^2 \approx 1.2}$$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
-\alert{$\begin{array}{ccccc} s_{xy} = 6,&s_y = 5,& s_x = 2,& \bar{y} = 68,& \bar{x} = 21\end{array}$}
-\begin{columns}[c]
-\column{2.5in}
-What is the value of $b$ for the regression: $$\hat{y}=a+bx$$
-where \alert{$x$ is handspan and $y$ is height? }
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/handspan_height2}
-\end{columns}
-\alert{$$b = \frac{s_{xy}}{s_x^2} = 6 /2^2 = 1.5 $$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-
-\begin{alertblock}{EXTREMELY IMPORTANT}
-	\begin{itemize}
-		\item Regression, Covariance and Correlation: linear association.
-		\item Linear association $\neq$ causation. 
-		\item Linear is not the only kind of association!
-	\end{itemize}
-\end{alertblock}
-
-\centering{\includegraphics[scale = 0.45]{./images/zero_corr}}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Regression to the Mean and the Regression Fallacy}
 
-  \alert{Please read Chapter 17 of ``Thinking Fast and Slow'' by Daniel Kahnemann which I have posted on Piazza. This reading is fair game on an exam or quiz.}
+%\begin{frame}
+%\frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
+%\alert{$\begin{array}{ccccc} s_{xy} = 6,&s_y = 5,& s_x = 2,& \bar{y} = 68,& \bar{x} = 21\end{array}$}
+%\begin{columns}[c]
+%\column{2.5in}
+%What is the value of $b$ for the regression: $$\hat{y}=a+bx$$
+%where \alert{$x$ is handspan and $y$ is height? }
+%\column{1.8in}
+%\includegraphics[scale = 0.4]{./images/handspan_height2}
+%\end{columns}
+%
+%\pause
+%\alert{$$b = \frac{s_{xy}}{s_x^2} = 6 /2^2 = 1.5 $$}
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \footnotesize
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{x} \hlkwb{<-} \hlkwd{seq}\hlstd{(}\hlkwc{from} \hlstd{=} \hlopt{-}\hlnum{1}\hlstd{,} \hlkwc{to} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{by} \hlstd{=} \hlnum{0.1}\hlstd{)}
+\hlstd{y} \hlkwb{<-} \hlstd{x}\hlopt{^}\hlnum{2}
+\hlkwd{cor}\hlstd{(x,y)}
+\end{alltt}
+\begin{verbatim}
+## [1] 1.216307e-16
+\end{verbatim}
+\begin{alltt}
+\hlkwd{plot}\hlstd{(x,y);} \hlkwd{abline}\hlstd{(}\hlkwd{lm}\hlstd{(y} \hlopt{~} \hlstd{x))}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/quadratic_plot-1} 
+
+\end{knitrout}
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
+\begin{frame}{Extremely Important Points to Remember!}
 
-\centering{\includegraphics[scale = 0.46]{./images/pearson}}
+  \begin{itemize}
+    \item Regression, covariance, and correlation are all \alert{measures of linear dependence}. 
+    \item Linear dependence \alert{need not} imply a causal relationship.
+    \item Dependence could be non-linear: always plot your data!
+  \end{itemize}
 
+%\centering{\includegraphics[scale = 0.45]{./images/zero_corr}}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%  \frametitle{Regression to the Mean and the Regression Fallacy}
+%
+%  \alert{Please read Chapter 17 of ``Thinking Fast and Slow'' by Daniel Kahnemann which I have posted on Piazza. This reading is fair game on an exam or quiz.}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%
+%\centering{\includegraphics[scale = 0.46]{./images/pearson}}
+%
+%
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{frame}
 %\frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
 %
@@ -448,22 +513,22 @@ where \alert{$x$ is handspan and $y$ is height? }
 %\end{frame}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Regression to the Mean}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Regression to the Mean}
-
-\begin{block}{Skill and Luck / Genes and Random Environmental Factors}\end{block}
-
-
-\begin{block}{Unless $r_{xy}=1$, There Is Regression to the Mean}
-$$\frac{\hat{y} - \bar{y}}{{s_y}} = r_{xy} \frac{x - \bar{x}}{s_x}$$
-\end{block}
-
-\begin{alertblock}{Least-squares Prediction $\hat{y}$ closer to $\bar{y}$ than $x$ is to $\bar{x}$}
-\end{alertblock}
-You will derive the above formula in this week's homework.
-\end{frame}
+%\section{Regression to the Mean}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{Regression to the Mean}
+%
+%\begin{block}{Skill and Luck / Genes and Random Environmental Factors}\end{block}
+%
+%
+%\begin{block}{Unless $r_{xy}=1$, There Is Regression to the Mean}
+%$$\frac{\hat{y} - \bar{y}}{{s_y}} = r_{xy} \frac{x - \bar{x}}{s_x}$$
+%\end{block}
+%
+%\begin{alertblock}{Least-squares Prediction $\hat{y}$ closer to $\bar{y}$ than $x$ is to $\bar{x}$}
+%\end{alertblock}
+%You will derive the above formula in this week's homework.
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{frame}
 %\frametitle{Regression Fallacy}

@@ -1,0 +1,1398 @@
+\documentclass[addpoints,12pt]{exam}
+\usepackage{amsmath, amssymb}
+\linespread{1.1}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{multirow}
+
+%\printanswers
+%\noprintanswers
+
+\title{Review Questions}
+\author{Econ 103}
+\date{Spring 2018}
+
+\begin{document}
+\maketitle
+
+\section*{About This Document}
+These questions are the ``bread and butter'' of Econ 103: they cover the basic knowledge that you will need to acquire this semester to pass the course. 
+There are between 10 and 15 questions for each lecture.
+After a given lecture, and before the next one, you should solve all of the associated review questions.
+To give you an incentive to keep up with the course material, all quiz questions for the course will be randomly selected from this list.
+For example Quiz \#1, which covers lectures 1--2, will consist of one question drawn at random from questions 1--10 and another drawn at random from questions 12--24 below.
+We will not circulate solutions to review questions.
+Compiling your own solutions is an important part of studying for the course.
+We will be happy to discuss any of the review questions with you in office hours or on Piazza, and you are most welcome to discuss them with your fellow classmates.
+Be warned, however, that merely memorizing answers written by a classmate is a risky strategy.
+It may get you through the quiz, but will leave you woefully unprepared for the exams.
+There is no curve in this course: to pass the exams you will have to learn the material covered in these questions.
+Rote memorization will not suffice.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Lecture \#1 -- Introduction}
+\begin{questions}
+
+  \question Define the following terms and give a simple example: \emph{population}, \emph{sample}, \emph{sample size}.
+  \question Explain the distinction between a \emph{parameter} and a \emph{statistic}.
+  \question Briefly compare and contrast \emph{sampling} and \emph{non-sampling} error.
+  \question Define a \emph{simple random sample}. Does it help us to address sampling error, non-sampling error, both, or neither? 
+
+\question A drive-time radio show frequently holds call-in polls during the evening rush hour. Do you expect that results based on such a poll will be biased? Why? 
+	\begin{solution}
+    They will likely be biased.
+		People who are listening to the radio during rush hour are disproportionately likely to be commuters driving home from work. People who are employed and drive to work are not representative of the population at large.  
+	\end{solution}
+
+
+\question Dylan polled a random sample of 100 college students. In total 20 of them said that they approved of President Trump. Calculate the margin of error for this poll.
+\begin{solution}
+  $2 \sqrt{P(1-P)/n} = 2 \sqrt{0.2 \times 0.8 / 100} = 0.08$
+\end{solution}
+
+\question Define the term \emph{confounder} and give an example.
+
+\question What is a randomized, double-blind experiment? In what sense is it a ``gold standard?'' 
+
+	
+\question Indicate whether each of the following involves experimental or observational data.
+	\begin{parts}
+		\part A biologist examines fish in a river to determine the proportion that show signs of disease due to pollutants poured into the river upstream.
+		\begin{solution}
+		Observational
+		\end{solution}
+		\part In a pilot phase of a fund-raising campaign, a university randomly contacts half of a group of alumni by phone and the other half by a personal letter to determine which method results in higher contributions.
+				\begin{solution}
+				Experimental
+		\end{solution}
+		\part To analyze possible problems from the by-products of gas combustion, people with with respiratory problems are matched by age and sex to people without respiratory problems and then asked whether or not they cook on a gas stove.
+				\begin{solution}
+				Observational
+		\end{solution}
+		\part An industrial pump manufacturer monitors warranty claims and surveys customers to assess the failure rate of its pumps.
+				\begin{solution}
+				Observational
+		\end{solution}
+	\end{parts}
+
+
+  \question Based on information from an observational dataset, Amy finds that students who attend an SAT prep class score, on average, 100 points better on the exam than students who do not. In this example, what would be required for a variable to \emph{confound} the relationship between SAT prep classes and exam performance? What are some possible confounders?
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fullwidth{\section*{Lecture \#2 -- Summary Statistics I}}
+
+\question For each variable indicate whether it is nominal, ordinal, or numeric.
+	\begin{parts}
+		\part Grade of meat: prime, choice, good.
+			\begin{solution}
+				ordinal
+			\end{solution}
+		\part Type of house: split-level, ranch, colonial, other.
+			\begin{solution}
+				nominal
+			\end{solution}
+		\part Income
+			\begin{solution}
+			 numeric
+			\end{solution}
+	\end{parts}
+	
+\question Explain the difference between a histogram and a barchart.
+
+\question Define \emph{oversmoothing} and \emph{undersmoothing}.
+
+\question What is an \emph{outlier}?
+
+\question Write down the formula for the sample mean. What does it measure? Compare and contrast it with the sample median. 
+
+\question Two hundred students took Dr.\ Evil's final exam. The third quartile of exam scores was 85. Approximately how many students scored \emph{no higher} than 85 on the exam? 
+
+\question Define \emph{range} and \emph{interquartile range}. What do they measure and how do they differ? 
+
+\question What is a boxplot? What information does it depict?
+
+\question Write down the formula for variance and standard deviation. What do these measure? How do they differ?
+
+
+\question Suppose that $x_i$ is measured in inches. 
+What are the units of the following quantities? 
+	\begin{parts}
+    \part Sample mean of $x$ 
+    \begin{solution}
+      inches
+    \end{solution}
+    \part Range of $x$
+    \begin{solution}
+      inches
+    \end{solution}
+		\part Interquartile Range of $x$
+			\begin{solution}
+        inches
+	\end{solution}
+		\part Variance of $x$
+		\begin{solution}
+		square inches 
+		\end{solution}
+    \part Standard deviation of $x$
+    \begin{solution}
+      inches
+    \end{solution}
+	\end{parts}
+
+\question Evaluate the following sums:
+\begin{parts}
+  \part $\displaystyle\sum_{n=1}^3 n^2$
+  \begin{solution}
+    $\displaystyle\sum_{n=1}^3 n^2 = 1^2 + 2^2 + 3^2 = 1 + 4 + 9 = 14$
+  \end{solution}
+  \part $\displaystyle\sum_{n=1}^3 2^n$
+  \begin{solution}
+    $\displaystyle\sum_{n=1}^3 2^n = 2^1 + 2^2 + 2^3 = 2 + 4 + 8 = 14$
+  \end{solution}
+  \part $\displaystyle\sum_{n=1}^3 x^n$
+  \begin{solution}
+    $\displaystyle\sum_{n=1}^3 x^n = x + x^2 + x^3$
+  \end{solution}
+\end{parts}
+
+\question Evaluate the following sums:
+\begin{parts}
+  \part $\displaystyle\sum_{k=0}^2 (2k + 1)$
+  \begin{solution}
+    $\displaystyle\sum_{k=0}^2 (2k + 1) = (2 \times 0 + 1) + (2 \times 1 + 1) + (2 \times 2 + 1) = 9$
+  \end{solution}
+  \part $\displaystyle\sum_{k=0}^3 (2k + 1)$
+  \begin{solution}
+    $\displaystyle\sum_{k=0}^3 (2k + 1) = \left[\sum_{k=0}^2 (2k + 1)\right] + (2 \times 3 + 1) = 9 + 7 = 16$
+  \end{solution}
+  \part $\displaystyle\sum_{k=0}^4 (2k + 1)$
+  \begin{solution}
+    $\displaystyle\sum_{k=0}^4 (2k + 1) = \left[ \sum_{k=0}^3 (2k + 1)\right] + (2 \times 4 + 1) = 16 + 9 = 25$ 
+  \end{solution}
+\end{parts}
+
+\question Evaluate the following sums:
+\begin{parts}
+  \part $\displaystyle\sum_{i=1}^3 (i^2 + i)$
+  \begin{solution}
+  $\displaystyle\sum_{i=1}^3 (i^2 + i) = (1^2 + 1) + (2^2 + 2) + (3^2 + 3) = 20$
+  \end{solution}
+  \part $\displaystyle\sum_{n =-2}^2 (n^2 - 4)$
+  \begin{solution}
+    $\displaystyle\sum_{n =-2}^2 (n^2 - 4) = \left[(-2)^2 + (-1)^2 + (0)^2 + (1)^2 + (2)^2 \right] - (4 \times 5) = -10$
+  \end{solution}
+  \part $\displaystyle\sum_{n = 100}^{102} n$
+  \begin{solution}
+  $\displaystyle\sum_{n = 100}^{102} n = 100 + 101 + 102 = 303$
+  \end{solution}
+  \part $\displaystyle\sum_{n = 0}^2 (n + 100)$
+  \begin{solution}
+  $\displaystyle\sum_{n = 0}^2 (n + 100) = (0 + 1 + 2) + 3 \times 100 = 303$
+  \end{solution}
+\end{parts}
+
+\question Express each of the following using $\Sigma$ notation:
+  \begin{parts}
+    \part $z_1 + z_2 + \cdots + z_{23}$
+    \begin{solution}
+      $\displaystyle \sum_{i=1}^{23} z_i$ 
+    \end{solution}
+    \part $x_1 y_1 + x_2 y_2 + \cdots + x_8 y_8$
+    \begin{solution}
+      $\displaystyle \sum_{i=1}^8 x_i y_i$
+    \end{solution}
+    \part $(x_1 - y_1) + (x_2 - y_2) + \cdots + (x_m - y_m)$
+    \begin{solution}
+      $\displaystyle \sum_{i=1}^m (x_i - y_i)$
+    \end{solution}
+    \part $x_1^3 f_1 + x_2^3 f_2 + \cdots + x_9^3 f_9$
+    \begin{solution}
+      $\displaystyle \sum_{i=1}^9 x_i^3 f_i$
+    \end{solution}
+\end{parts}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fullwidth{\section*{Lecture \#3 -- Summary Statistics II}}
+
+
+\question Show that $\displaystyle \sum_{i = m}^n (a_i + b_i) = \sum_{i=m}^n a_i + \sum_{i=m}^n b_i$. Explain your reasoning.
+
+\question Show that if $c$ is a constant then $\displaystyle \sum_{i=m}^n c x_i = c \sum_{i=m}^n x_i$. Explain your reasoning.
+
+\question Show that if $c$ is a constant then $\displaystyle \sum_{i=1}^n c = cn$. Explain your reasoning.
+
+\question Mark each of the following statements as True or False. You do not need to show your work if this question appears on a quiz, although you should make sure you understand the reasoning behind each of your answers.
+	\begin{parts}
+		\part $\displaystyle\sum_{i=1}^n (x_i/n) = \left(\sum_{i=1}^n x_i\right)/n$ 
+		\part $\displaystyle\sum_{k = 1}^n x_k z_k = z_k \sum_{k = 1}^n x_k$ 
+		\part $\displaystyle\sum_{k=1}^m x_k y_k = \left(\sum_{k=1}^m x_k\right) \left(\sum_{k=1}^m y_k\right)$ 
+		\part $\displaystyle\left(\sum_{i=1}^n x_i \right)\left(\sum_{j=1}^m y_j\right) = \sum_{i=1}^n \sum_{j=1}^m x_iy_j$ 
+		\part $\displaystyle\left(\sum_{i=1}^n x_i\right)/\left(\sum_{i=1}^n z_i\right)= \sum_{i=1}^n \left(x_i/z_i\right) $
+	\end{parts}
+
+  \question Show that $\sum_{i=1}^n (x_i - \bar{x}) = 0$. Justify all of the steps you use.
+
+  \question Re-write the formula for skewness in terms of the z-scores $z_i = (x_i - \bar{x})/s$. Use this to explain the original formula: why does it involve a cubic and why does it divide by $s^3$?
+  \begin{solution}
+    \[
+      \frac{1}{n}\frac{\sum_{i=1}^n (x_i - \bar{x})^3}{s^3} = \frac{1}{n} \sum_{i=1}^n \left( \frac{x_i - \bar{x}}{s} \right)^3 = \frac{1}{n} \sum_{i=1}^n z_i^3
+    \]
+  \end{solution}
+
+
+\question How do we interpret the sign of skewness, and what is the ``rule of thumb'' that relates skewness, the mean, and median?
+
+\question What is the distinction between $\mu, \sigma^2, \sigma$ and $\bar{x}, s^2, s$? Which corresponds to which?
+
+\question What is the empirical rule?
+
+\question Define \emph{centering}, \emph{standardizing}, and \emph{z-score}.
+
+\question What is the sample mean $\bar{z}$ of the z-scores $z_1, \dots, z_n$? Prove your answer.
+
+\question What is the sample variance $s_z^2$ of the z-scores $z_1, \dots, z_n$? Prove your answer.
+
+\question Suppose that $-c < (a - x)/b < c$ where $b>0$. Find a lower bound $L$ and an upper bound $U$ such that $L < x < U$.
+			\begin{solution}
+				Rearranging, 
+					$$-bc - a < -x < bc - a$$
+				and multiplying through by $-1$,
+					$$a - bc < x <a + bc$$
+        \end{solution}
+
+\question Compare and contrast \emph{covariance} and \emph{correlation}. Provide the formula for each, explain the units, the interpretation, etc.
+
+\question Suppose that $x_i$ is measured in centimeters and $y_i$ is measured in feet. What are the units of the following quantities? 
+	\begin{parts}
+		\part Covariance between $x$ and $y$			
+		\begin{solution}
+	 centimeters $\times$ feet
+	\end{solution}
+		\part Correlation between $x$ and $y$
+		\begin{solution}
+		unitless
+		\end{solution}
+		\part Skewness of $x$
+		\begin{solution}
+		unitless
+		\end{solution}
+    \part $(x_i - \bar{x}) / s_x$
+    \begin{solution}
+      unitless
+    \end{solution}
+	\end{parts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fullwidth{\section*{Lecture \#4 -- Regression I}}
+
+\question In a regression using height (measured in inches) to predict handspan (measured in centimeters) we obtained $a = 5$ and $b = 0.2$. 
+\begin{parts}
+  \part What are the units of $a$?
+  \part What are the units of $b$?
+  \part What handspan would we predict for someone who is 6 feet tall?
+\end{parts}
+
+\question Plot the following dataset and calculate the corresponding regression slope and intercept \emph{without} using the regression formulas.\\ 
+\begin{tabular}[h]{cc}
+  $x$ & $y$\\
+  \hline
+   0 & 2\\
+   1 & 1\\
+   1 & 2
+\end{tabular}
+
+\question Write down the optimization problem that linear regression solves.
+
+\question Prove that the regression line goes through the means of the data.
+
+\question By substituting $a = \bar{y} - b\bar{x}$ into the linear regression objective function, derive the formula for $b$.
+
+\question Consider the regression $\widehat{y} = a + bx$.
+\begin{parts}
+  \part Express $b$ in terms of the sample covariance between $x$ and $y$.
+  \part Express the sample correlation between $x$ and $y$ in terms of $b$.
+\end{parts}
+
+\question What value of $a$ minimizes $\displaystyle\sum_{i=1}^n (y_i - a)^2$? Prove your answer.
+
+\question Suppose that $s_{xy} = 30$, $s_x = 10$, $s_{y} = 6$, $\bar{y} = 12$, and $\bar{x} = 4$. Calculate $a$ and $b$ in the regression $\widehat{y} = a + bx$.
+\begin{solution}
+  \begin{align*}
+  b &= s_{xy}/s_x^2 = 30 / 10^2 = 30/100 = 0.3\\
+  a &= \bar{y} - b \bar{x} = 12 - 0.3 \times 4 = 12 - 1.2 = 10.8
+  \end{align*}
+\end{solution}
+
+\question Suppose that $s_{xy} = 30$, $s_x = 10$, $s_{y} = 6$, $\bar{y} = 12$, and $\bar{x} = 4$. Calculate $c$ and $d$ in the regression $\widehat{x} = c + dy$. Note: we are using $y$ to predict $x$ in this regression!
+\begin{solution}
+  \begin{align*}
+  b &= s_{xy}/s_y^2 = 30 / 6^2 = 30/36 = 5/6 \approx 0.83\\ 
+  a &= \bar{y} - b \bar{x} = 12 - 5/6 \times 4 = 12 - 10/3 = 26/3 \approx 8.7
+  \end{align*}
+\end{solution}
+
+\question A large number of students took two midterm exams. The standard deviation of scores on midterm \#1 was 16 points, while the standard deviation of scores midterm \#2 was 17 points. The covariance of the scores on the two exams was 124 points squared. Linus scored 60 points on midterm \#1 while Lucy scored 80 points. How much higher would we predict that Lucy's score on the midterm \#2 will be?
+
+\question Suppose that the correlation between scores on midterm \#1 and midterm \#2 in Econ 103 is approximately 0.5. If the regression slope when using scores on midterm \#1 to predict those on midterm \#2 is approximately 1.5, which exam had the larger \emph{spread} in scores? How much larger?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fullwidth{\section*{Lecture \#5 -- Basic Probability I}}
+
+\question What is the definition of probability that we will adopt in Econ 103?
+
+\question Define the following terms:
+\begin{parts}
+  \part \emph{random experiment}
+  \part \emph{basic outcomes}
+  \part \emph{sample space}
+  \part \emph{event}
+\end{parts}
+
+
+\question Define the following terms and give an example of each:
+\begin{parts}
+  \part \emph{mutually exclusive events}
+  \part \emph{collectively exhaustive events}
+\end{parts}
+
+\question Suppose that $S = \left\{1, 2, 3, 4, 5, 6 \right\}$, $A = \left\{2, 3 \right\}$, $B = \left\{ 3, 4, 6 \right\}$, and $C = \left\{ 1, 5 \right\}$.
+\begin{parts}
+  \part What is $A^c$? 
+  \part What is $A\cup B$?
+  \part What is $A \cap B$?
+  \part What is $A \cap C$?
+  \part Are $A,B,C$ mutually exclusive? Are they collectively exhaustive?
+\end{parts}
+
+\question A family has three children. Let $A$ be the event that they have less than two girls and $B$ be the event that they have exactly two girls. 
+\begin{parts}
+  \part List all of the basic outcomes in $A$.
+  \part List all of the basic outcomes in $B$.
+  \part List all of the basic outcomes in $A \cap B$
+  \part List all of the basic outcomes in $A \cup B$.
+  \part If male and female births are equally likely, what is the probability of $A$?
+\end{parts}
+
+\question Let $B = A^c$. Are $A$ and $B$ mutually exclusive? Are they collectively exhaustive? Why?
+
+\question State each of the three axioms of probability, aka the \emph{Kolmogorov Axioms}.
+
+\question Suppose we carry out a random experiment that consists of flipping a fair coin twice.
+	\begin{parts}
+		\part List all the basic outcomes in the sample space.
+		\begin{solution}
+			$S = \{HH, HT, TT, TH\}$
+		\end{solution}
+		\part Let $A$ be the event that you get at least one head. List all the basic outcomes in $A$.
+		\begin{solution}
+			$A = \{HH, HT, TH\}$
+		\end{solution}
+		\part List all the basic outcomes in $A^c$. 
+		\begin{solution}
+			$A^c = \{TT\}$
+		\end{solution}
+		\part What is the probability of $A$? What is the probability of $A^c$?
+		\begin{solution}
+			$P(A) = 3/4 = 0.75$ and $P(A^c) = 1/4$
+		\end{solution}
+	\end{parts}
+
+\question Calculate the following:
+\begin{parts}
+  \part $5!$
+  \begin{solution}
+    120
+  \end{solution}
+  \part $\displaystyle \frac{100!}{98!}$
+  \begin{solution}
+    9900
+  \end{solution}
+  \part $\displaystyle {5 \choose 3}$
+  \begin{solution}
+    10
+  \end{solution}
+\end{parts}
+
+
+\question 
+\begin{parts}
+  \part How many different ways can we choose a President and Secretary from a group of 4 people if the two offices must be held by different people?
+  \part How many different committees with two members can we form a group of 4 people, assuming that the order in which we choose people for the committee doesn't matter. 
+\end{parts}
+
+\question Suppose that I flip a fair coin 5 times.
+\begin{parts}
+  \part How many basic outcomes contain exactly two heads? 
+  \part How many basic outcomes contain exactly three tails?
+  \part How many basic outcomes contain exactly one heads?
+  \part How many basic outcomes contain exactly four tails?
+\end{parts}
+
+\question Explain why $\displaystyle{n \choose r} = {n \choose n-r}$.
+
+%\question Suppose I deal two cards at random from a well-shuffled deck of 52 playing cards. What is the probability that I get a pair of aces? 
+%	\begin{solution}
+%	You can either solve this assuming that order doesn't matter:
+%		$$\frac{\binom{4}{2}}{\binom{52}{2}} = \frac{4!/(2!\times 2!)}{52!/(50!  \times 2!)} = \frac{6}{(52\times 51)/2}= 6/1326 = 1/221$$
+%		or that it does:
+%		$$\frac{P^4_2}{P^{52}_2} = \frac{4!/2!}{52!/50!} =\frac{(4\times 3)}{(52\times 51)} = 12/2652 = 1/221$$
+%		In either case, the answer is the same: $1/221  \approx 0.005$
+%	\end{solution}
+
+  \question Suppose that I choose two distinct numbers at random from the set $\left\{ 1, 2, 3, 4, 5, 6, 7, 8, 9 \right\}$. What is the probability that both are odd?
+  \begin{solution}
+    This solution assumes that order doesn't matter.
+    You could also assume that it does matter and get the same answer.
+    There are $\displaystyle {9 \choose 2} = 36$ equally likely ways to choose 2 items from a set of 9. Of these, there are $\displaystyle {5 \choose 2} = 10$ ways to choose 2 of the 5 odd numbers.
+    Hence the probability is $10/36 = 5/18$.
+  \end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fullwidth{\section*{Lecture \#6 -- Basic Probability II}}
+
+\question State and prove the \emph{complement rule}.
+
+\question State the \emph{multiplication rule}, and compare it to the definition of conditional probability.
+
+\question Mark each statement as TRUE or FALSE. If FALSE, give a one sentence explanation.
+\begin{parts}
+  \part If $A \subseteq B$ then $P(A) \geq P(B)$.
+  \begin{solution}
+    FALSE: this is the logical consequence rule with the inequality sign going in the \emph{wrong direction}. 
+  \end{solution}
+  \part For any events $A$ and $B$, $P(A\cap B) = P(A)P(B)$.
+  \begin{solution}
+    FALSE: this only holds if $A$ and $B$ are independent.
+  \end{solution}
+  \part For any events $A$ and $B$, $P(A\cup B) = P(A) + P(B) - P(A\cap B)$.
+  \begin{solution}
+    TRUE: this is the addition rule.
+  \end{solution}
+\end{parts}
+
+\question Suppose that $P(B) = 0.4$, $P(A|B) = 0.1$ and $P(A|B^c) = 0.9$. 
+\begin{parts}
+  \part Calculate $P(A)$.
+\begin{solution}
+  By the law of total probability,
+  \[
+    P(A) = P(A|B)P(B) + P(A|B^c)P(B^c) = 0.1 \times 0.4 + 0.9 \times 0.6 = 0.58
+  \]
+\end{solution}
+  \part Calculate $P(B|A)$.
+  \begin{solution}
+    By Bayes' rule,
+    \[
+      P(B|A) = \frac{P(A|B)P(B)}{P(A)} = \frac{0.1 \times 0.4}{0.58} = 2/29 \approx 0.07
+    \]
+  \end{solution}
+\end{parts}
+
+\question Define statistical independence. How is it related to conditional probability, and what does it mean intuitively?
+
+\question State and prove the law of total probability for $k = 2$.
+
+\question Find the probability of getting \emph{at least} one six if you roll a fair, six-sided die three times.
+		\begin{solution}
+			Using the complement rule:
+				$$P(\mbox{At Least One Six}) = 1 - P(\mbox{No Sixes})$$
+			And by independence:
+				$$P(\mbox{No Sixes}) = 5/6 \times 5/6 \times 5/6 = 125/216$$
+			Hence, 
+			$$P(\mbox{At Least One Six}) = 1 - 125/216 = 91/216 \approx 0.42$$
+		\end{solution}
+	
+%\question Suppose everyone in a class of one hundred students flips a fair coin five times.
+%	\begin{parts}
+%    \part What is the probability that a given student in the class gets five heads in a row? 
+%			\begin{solution}
+%				$(1/2)^5 = 1/32\approx 0.03$
+%			\end{solution}
+%	 	\part What is the probability that at least one student gets five heads in a row?
+%	 	\begin{solution}
+%	 	Use the complement rule: let $A$ be the event that at least one person gets five heads in a row. Calculate the probability that no one gets 5 heads in a row as follows:
+%	 		$$P(A^c) = (1 - 1/2^5)^{100} = (31/32)^{100}\approx 0.04$$
+%	 		Hence the desired probability is about $0.96$.
+%	 	\end{solution}
+%	\end{parts}
+
+\question Suppose a couple decides to have three children. Assume that the sex of each child is independent, and the probability of a girl is $0.48$, the approximate figure in the US. 
+	\begin{parts}
+		\part How many basic outcomes are there for this experiment? Are they equally likely?
+		\begin{solution}
+			There are two possible outcomes for each birth, so by the multiplication rule for counting, the total number of possibilities is $2\times 2\times 2 = 8$.
+			They are not equally likely because each child is more likely to be a boy than a girl. The outcome BBB is most likely, followed by outcomes with two boys, and then outcomes with one boy. The outcome GGG is least likely.
+			\end{solution}
+		\part What is the probability that the couple has \emph{at least one} girl?
+			\begin{solution}
+				Use the Complement Rule and independence to calculate the probability of no girls, i.e.\ all boys:
+					$$0.52 \times 0.52 \times 0.52 \approx 0.14$$
+				Hence, the probability of at least one girl is approximately $1 - 0.14 = 0.86$
+			\end{solution}
+	\end{parts}
+
+  \question Let $A$ and $B$ be two arbitrary events. Use the addition rule and axioms of probability to establish the following results.
+\begin{parts}
+  \part Show that $P(A\cup B) \leq P(A) + P(B)$. (This is called \emph{Boole's Inequality}.)
+  \begin{solution}
+   By the Addition Rule $P(A\cup B) = P(A) + P(B) - P(A\cap B)$. The result follows since $P(A\cap B) \geq 0$ by the first axiom of probability. 
+  \end{solution}
+  \part Show that $P(A\cap B) \geq P(A) + P(B) - 1$. (This is called \emph{Bonferroni's Inequality})
+  \begin{solution}
+   Rearranging the Addition Rule, $P(A\cap B) = P(A) + P(B) - P(A\cup B)$. The result follows since $P(A\cup B)$ is at most one by the first axiom of probability.
+  \end{solution}
+\end{parts}
+
+%\question Suppose I flip a fair coin and roll a single fair die at the same time. Define the events 
+%\\ $A =$ the coin comes up tails 
+%\\ $B =$ the die shows a 3 \emph{or} 5
+%\\ $C =$ the die shows an \emph{odd} number 
+% 	\begin{parts} 
+%    \part Calculate $P(B|C)$.
+%    \begin{solution}
+%      \[P(B|C) = P(B\cap C)/P(C) =  (1/3)/(1/2) = 2/3\] 
+%    \end{solution}
+%    \part Calculate $P(A \cap B)$.
+%    \begin{solution}
+%      Since the dice roll and coin flip are independent, we have $P(A \cap B) = P(A)P(B) = (1/2) \times (1/3) = 1/6$. 
+%    \end{solution}
+%    \part Calculate $P(A \cup B)$.
+%    \begin{solution}
+%      $P(A \cup B) = P(A) + P(B) - P(A \cap B) = 1/2 + 1/3 -1/6 = 3/6 + 2/6 - 1/6 = 4/6 = 2/3$.  
+%    \end{solution}
+%
+% 	\end{parts}
+
+\question Let $A$ and $B$ be two mutually exclusive events such that $P(A)>0$ and $P(B)>0$. Are $A$ and $B$ independent? Explain why or why not.
+\begin{solution} 
+  They are not independent: knowing that one has occurred means that the other \emph{cannot have occurred}.
+  You can also show this mathematically.
+  Since $A$ and $B$ are mutually exclusive, $P(A\cap B) = 0$.
+  But independence requires that $P(A\cap B) = P(A)P(B)$.
+  Since neither $P(A)$ nor $P(B)$ is zero, it follows that the events cannot be independent.
+\end{solution}
+
+\question Molly the meteorologist determines that the probability of rain on Saturday is 50\%, and the probability of rain on Sunday is also 50\%.
+Adam the anchorman sees Molly's forecast and summarizes it as follows:  ``According to Molly we're in for a wet weekend. There's a 100\% chance of rain this weekend: 50\% on Saturday and 50\% on Sunday.'' Is Adam correct? Why or why not? 
+			\begin{solution}
+				Adam is incorrect. 
+        Let $A$ be the event that it rains on Saturday, $B$ be the event that it rains on Sunday, and $C$ be the event that it rains on the weekend.
+        By the addition rule $P(C) = P(A) + P(B) - P(A\cap B)$, so Adam is only correct if $P(A\cap B) = 0$, in other words he is only correct if it is \emph{impossible} for it to rain on both Saturday and Sunday. There is no way to know that this is the case solely from Molly's information about the probabilities of $A$ and $B$.
+			\end{solution}
+
+
+\question Suppose I throw two fair, six-sided dice once. Define the following events:
+	\begin{eqnarray*}
+		E &=& \mbox{The first die shows 5}\\
+		F &=& \mbox{The sum of the two dice equals 7}\\
+		G &=& \mbox{The sum of the two dice equals 10}
+	\end{eqnarray*}
+	\begin{parts}
+		\part Calculate $P(F)$.
+			\begin{solution}
+				Of the 36 basic outcomes of the experiment, the pairs (1,6), (6,1), (2,5), (5,2), (3,4), and (4,3) sum to 7. Hence the probability is 1/6.
+			\end{solution}
+		\part Calculate $P(G)$.
+			\begin{solution}
+				Of the 36 basic outcomes of this experiment, the pairs (5,5), (4,6), and (6,4) sum to 10. Hence the probability is $3/36 = 1/12$.
+			\end{solution}
+		\part Calculate $P(F|E)$.
+			\begin{solution}
+			By the definition of conditional probability,
+			 $$P(F|E) = \frac{P(F\cap E)}{P(E)}$$
+			 We know that $P(E) = 1/6$. The only way that $F\cap E$ can occur is if we roll (5,7). Hence $P(F\cap E) = 1/36$. Thus, $P(F|E) = (1/36)/(1/6) = 6/36 = 1/6$.
+			\end{solution}
+		\part Calculate $P(G|E)$.
+			\begin{solution}
+				Again, by the definition of conditional probability,
+					$$P(G|E) = \frac{P(G\cap E)}{P(E)}$$
+				As before, $P(E) = 1/6$. The only way for $G\cap E$ to occur is if we roll (5,5). Hence $P(G|E) = (1/36)/(1/6) = 6/36 = 1/6$.
+			\end{solution}
+	\end{parts}
+
+
+\fullwidth{\section*{Lecture \#7 -- Basic Probability III / Discrete RVs I}}
+
+\question What is the base rate fallacy? Give an example.
+
+\question Derive Bayes' Rule from the definition of conditional probability.
+
+\question What are two names for the \emph{unconditional} probability in the numerator of Bayes' rule?
+
+\question When is it true that $P(A|B) = P(B|A)$? Explain.
+
+\question Of women who undergo regular mammograms, two percent have breast cancer. If a woman has breast cancer, there is a 90\% chance that her mammogram will come back positive. If she does \emph{not} have breast cancer there is a 10\% chance that her mammogram will come back positive. Given that a woman's mammogram has come back positive, what is the probability that she has breast cancer? 
+	\begin{solution}
+		 Let $B$ be the event that a given woman has breast cancer and $M$ be the event that her mammogram comes back positive. By Bayes' Rule,
+		 		\[
+          P(B|M) = \frac{P(M|B)P(B)}{P(M)}
+        \]
+	By the law of total probability, 
+		 			\begin{align*}
+		 			P(M) &= P(M|B)P(B) + P(M|B^c)P(B^c)\\
+		 				&= 0.9 \times 0.02 + 0.1 \times 0.98  = 0.018 + 0.098 = 0.116
+		 			\end{align*}
+		 	Hence,
+		 		\[
+          P(B|M) = \frac{0.9 \times 0.02}{0.116} = \frac{0.018}{0.116} \approx 0.16
+        \]
+	\end{solution}
+
+%  \question Sherlock Holmes has gone away on vacation, instructing Dr.\ Watson to water the flowers in his absence. 
+%  Unfortunately Watson has a rather poor memory: the probability that he will remember to water the flowers is only 2/3.
+%  The flowers weren't in the best shape when Holmes left: even if watered the probability that they will wither and die before Holmes returns is 1/2.
+%  If they aren't watered, the probability that they will wither and die increases to 3/4. 
+%  Holmes returns to find that his flowers have died.
+%  What is the probability that Watson forgot to water them?
+%  \begin{solution}
+%    By Bayes' Rule:
+%    \begin{equation*}
+%      P(\mbox{Forget}|\mbox{Die}) = \frac{P(\mbox{Die}|\mbox{Forget})P(\mbox{Forget})}{P(\mbox{Die})}
+%    \end{equation*}
+%    We calculate the denominator using the law of total probability as follows:
+%    \begin{eqnarray*}
+%      P(\mbox{Die}) &=& P(\mbox{Die}|\mbox{Forget})P(\mbox{Forget})+ P(\mbox{Die}|\mbox{Remember})P(\mbox{Remember})\\
+%      &=& 3/4 \times 1/3 + 1/2 \times 2/3 = 3/12 + 2/6 = 7/12
+%    \end{eqnarray*}
+%    Thus $P(\mbox{Forget}|\mbox{Die}) = (3/12)/(7/12) = 3/7$.
+%    It is more likely than not that Watson forgot to water the flowers.
+%  \end{solution}
+
+%\question I have two six-sided dice in my pocket: one fair die and one loaded die. The fair die has the usual probabilities, but the probability of getting a 6 when rolling the loaded die is 1/2. Suppose I reach into my pocket and draw one of the two dice at random (both are equally likely to be drawn). I roll this randomly chosen die and get a 6. What is the probability that I drew the loaded die? 
+%	\begin{solution}
+%		Let $L$ be the event that I draw the loaded die, $F$ be the event that I draw the fair die and $6$ be the event that I roll a six. By Bayes' rule, we have
+%			$$P(L|6) = \frac{P(6|L)P(L)}{P(6)}$$
+%Calculating the denominator by the Law of Total Probability, we have
+%		\begin{eqnarray*}			
+%			P(6) &=& P(6|L)P(L) + P(6|F)P(F) \\
+%			&=& 1/2 \times 1/2 + 1/6\times 1/2\\
+%			&=&	1/4 + 1/12 \\
+%			&=& 1/3		
+%			\end{eqnarray*}
+%		Hence,
+%			$$P(L|6) = \frac{1/4}{1/3} = 3/4 = 0.75$$
+%	\end{solution}
+	
+	
+
+\question The Triangle is a neighborhood that once housed a chemical plant but has become a residential area. Two percent of the children in the city live in the Triangle, and fourteen percent of these children test positive for excessive presence of toxic metals in the tissue. For children in the city who do not live in the Triangle, the rate of positive tests is only one percent. If we randomly select a child who lives in the city and she tests positive, what is the probability that she lives in the Triangle?
+		\begin{solution}
+		By the law of total probability
+		\begin{align*}
+		P(M) &= P(M|T)P(T) + P(M|T^c)P(T^c)\\
+			&= 0.14 \times 0.02 +  0.01 \times 0.98\\
+			&= 0.0028 + 0.0098 \\
+			&= 0.0126
+		\end{align*}
+		and by Bayes' Rule:
+				\begin{align*}
+				P(T|M) &= \frac{P(M|T)P(T)}{P(M)}\\
+					&= \frac{0.0028}{0.0126} = 2/9 \approx 0.22
+				\end{align*}
+			\end{solution}
+
+
+\question Three percent of \emph{Tropicana} brand oranges are already rotten when they arrive at the supermarket. In contrast, six percent of \emph{Sunkist} brand oranges arrive rotten. A local supermarket buys forty percent of its oranges from \emph{Tropicana} and the rest from \emph{Sunkist}. 
+		Suppose we randomly choose an orange from the supermarket and see that it is rotten. What is the probability that it is a \emph{Tropicana}?
+		\begin{solution}
+			By the law of total probability:
+				\begin{align*}
+				P(R) &= P(R|T)P(T) + P(R|T^c)P(T^c)\\
+					&= 0.03 \times 0.4 + 0.06 \times 0.6\\
+					&= 0.012 + 0.036 \\
+					&= 0.048
+				\end{align*}
+		 and by Bayes' Rule:
+			\begin{align*}
+			P(T|R) &= \frac{P(R|T)P(T)}{P(R)}\\
+					&= \frac{0.012}{0.048} = 1/4 = 0.25
+			\end{align*}
+		\end{solution}
+
+\question Define the terms \emph{random variable}, \emph{realization}, and \emph{support set}.
+
+\question What is the probability that a RV takes on a value outside of its support set?
+
+\question What is the difference between a \emph{discrete} and \emph{continuous} RV? 
+
+\question What is a \emph{probability mass function}? What two key properties does it satisfy?
+
+%\question The \emph{Rademacher} RV is equally likely to take any value in the set $\left\{ -1,1 \right\}$ and never takes on any value outside this set. Write out and sketch its probability mass function.
+%
+\fullwidth{\section*{Lecture \#8 -- Discrete RVs II}}
+
+\question Define the term \emph{cumulative distribution function} (CDF).
+How is the CDF of a discrete RV $X$ related to its pmf?
+
+\question Let $X$ be a RV with support set $\left\{-1, 1 \right\}$ and $p(-1) = 1/3$.
+Write down the CDF of $X$. 
+\begin{solution}
+$F(x_0) = \left\{\begin{array}{l} 0,\, x_0 < -1 \\ 1/3, \, -1 \leq x_0 < 1\\ 1,\, x_0 \geq 1\end{array} \right.$
+\end{solution}
+
+\question Write out the support set, pmf, and CDF of a Bernoulli$(p)$ RV.
+
+\question Define the term \emph{parameter} as it relates to a random variable. Are parameters constant or random?
+
+\question Let $X$ be a RV with support set $\left\{0, 1, 2 \right\}$, $p(1) = 0.3$, and $p(2) = 0.5$. Calculate $E[X]$.
+\begin{solution}
+  $E(X) = 0 \times 0.2 + 1 \times 0.3 + 2 \times 0.5 = 1.3$
+\end{solution}
+
+
+\emph Let $X$ be a discrete RV. Define the expected value $E[X]$ of $X$. Is $E[X]$ constant or random? Why?
+
+\question Suppose $X$ is a RV with support $\{-1, 0, 1\}$ where $p(-1)=q$ and $p(1) = p$. What relationship must hold between $p$ and $q$ to ensure that $E[X] = 0$?
+		\begin{solution}
+				By the complement rule $p(0) = 1 - p - q$.
+        Hence, 
+        \[
+          E[X] = -1 \cdot q + 0 \cdot (1-p-q) + p\cdot 1 = p-q
+        \]
+        so that $E[X] = 0$ if and only if $p = q$.
+    \end{solution}
+
+\question Let $X$ be a discrete RV and $a, b$ be constants. 
+Prove that $E[a + bX] = a + bE[X]$.
+
+\question Suppose that $E[X]=8$ and $Y= 3 + X/2$. Calculate $E[Y]$.
+\begin{solution}
+$E(Y) = 3 + E(X)/2 = 7$
+\end{solution}
+
+\question Suppose that $X$ is a discrete RV and $g$ is a function. Explain how to calculate $E[g(X)]$. Is this the same thing as $g\left(E[X]\right)$?
+
+\question Let $X$ be a RV with support set $\left\{ -1, 1 \right\}$ and $p(-1) = 1/3$. Calculate $E[X^2]$.
+\begin{solution}
+  $E[X^2] = (-1)^2 \times 1/3 + (1)^2 \times 2/3 = 1$
+\end{solution}
+
+\question Let $X$ be a RV with support set $\left\{ 2,4 \right\}$, $p(2) = 1/2$ and $p(4) = 1/2$. Mark each of the following claims as TRUE or FALSE, either by appealing to a result from class, or by directly calculating both sides of the equality.
+\begin{parts}
+  \part $E[X+10] = E[X] + 10$
+  \begin{solution}
+    TRUE by the linearity of expectation.
+  \end{solution}
+  \part $E[X/10] = E[X]/10$
+  \begin{solution}
+    TRUE by the linearity of expectation.
+  \end{solution}
+  \part $E[10/X] = 10/E[X]$
+  \begin{solution}
+    FALSE. By direct calculation:
+    \begin{align*}
+      E[10/X] &= 1/2 \times 10/2 + 1/2 \times 10/4 = 15/4 = 3.75\\
+      10/E[X] &= 10/(1/2 \times 2 + 1/2 \times 4) = 10/3
+    \end{align*}
+  \end{solution}
+  \part $E[X^2] = \left(E[X]\right)^2$
+  \begin{solution}
+   FALSE. By direct calculation: 
+    \begin{align*}
+      E[X^2] &= 1/2 \times 2^2 + 1/2 \times 4^2 = 10\\
+      \left( E[X] \right)^2 &= \left( 1/2 \times 2 + 1/2 \times 4 \right)^2 = 9
+    \end{align*}
+  \end{solution}
+  \part $E[5X + 2]/10 = \left(5E[X] + 2\right)/10$
+  \begin{solution}
+    TRUE by the linearity of expectation.
+  \end{solution}
+\end{parts}
+
+
+\fullwidth{\section*{Lecture \#9 -- Discrete RVs III}}
+
+\question Define the \emph{variance} and \emph{standard deviation} of a RV $X$. Are these constant or random?
+
+\question Explain how to use our formula for $E[g(X)]$ to calculate the variance of a discrete RV. 
+
+\question Write down the shortcut formula for variance, and use it to calculate $Var(X)$ where $X\sim\mbox{Bernoulli}(p)$. 
+
+\question Let $X$ be a random variable and $a,b$ be constants. 
+Prove that $Var(a + bX) = b^2 Var(X)$.
+
+\question Define the Binomial$(n,p)$ RV in terms of independent Bernoulli trials, and write down its support set and probability mass function.
+
+\question Substitute $n=1$ into the pmf of a Binomial$(n,p)$ RV and show that you obtain the pmf of a Bernoulli$(p)$ RV.
+	\begin{solution}
+		The pmf for a Binomial$(n,p)$ RV is
+		$$p(x) = {n \choose x} p^x (1-p)^{n-x}$$
+		with support $\{0, 1, 2\hdots, n\}$. Setting $n=1$ gives,
+		$$p(x) = p(x) = {1 \choose x} p^x (1-p)^{1-x}$$
+		with support $\{0,1\}$. Plugging in each realization in the support, and recalling that $0! = 1$, we have
+			$$p(0) = \frac{1!}{0!(1-0)!} p^0 (1-p)^{1-0} = 1 - p$$
+		and
+		$$p(1) = \frac{1!}{1!(1-1)!} p^1 (1-p)^0 = p$$
+		which is exactly how we defined the Bernoulli Random Variable.
+	\end{solution}
+
+\question A multiple choice quiz has 12 questions, each of which has 5 choices. To pass you need to get at least 8 of them correct. Nina forgot to study, so she simply guesses at random.
+\begin{parts}
+  \item Let the random variable $X$ denote the number of questions that Nina gets correct on the quiz. What kind of random variable is $X$? Specify all parameter values.
+  \item Calculate the probability that Nina passes the quiz.
+\end{parts}
+
+\fullwidth{\section*{Lecture \#10 -- Discrete RVs IV}}
+		
+%\question Define the \emph{joint probability mass function} $p_{XY}$ of two discrete RVs $X$ and $Y$ and list its two key properties.
+
+\question What is the difference between a joint pmf and a marginal pmf? Can you calculate a marginal pmf from a joint? How? Can you calculate a joint pmf from a marginal pmf?
+
+\question Suppose that $X$ is a random variable with support $\{1,2\}$ and $Y$ is a random variable with support $\{0,1\}$ where $X$ and $Y$ have the following joint pmf: 
+			\begin{eqnarray*}
+				p_{XY}(1,0) = 0.20, && p_{XY}(1,1) = 0.30 \\
+				p_{XY}(2,0) = 0.25, && p_{XY}(2,1) = 0.25
+			\end{eqnarray*}
+	\begin{parts}
+  \item Express the joint pmf in a table with $X$ in the \emph{rows}, as we did in class. 
+			\begin{solution}
+			\begin{center}
+\begin{tabular}{|cc|cc|}
+\hline
+&&\multicolumn{2}{c|}{$X$}\\
+&&1 & 2\\
+\hline
+\multirow{2}{*}{$Y$}
+&0& \multicolumn{1}{|c}{0.20} & 0.25\\
+&1& \multicolumn{1}{|c}{0.30} & 0.25\\
+\hline
+\end{tabular}
+\end{center}
+			\end{solution}
+		\item Using the table, calculate the marginal pmfs of $X$ and $Y$.
+			\begin{solution}
+				\begin{eqnarray*}
+					p_X(1) &=&p_{XY}(1,0) + p_{XY}(1,1)=0.20+0.30 = 0.50 \\
+					p_X(2) &=&p_{XY}(2,0) + p_{XY}(2,1)=0.25 + 0.25 = 0.50 \\
+					p_Y(0) &=&p_{XY}(1,0) + p_{XY}(2,0) = 0.20 + 0.25 = 0.45 \\
+					p_Y(1) &=& p_{XY}(1,1) + p_{XY}(2,1) = 0.30 + 0.25 = 0.55
+				\end{eqnarray*}
+			\end{solution}
+\end{parts}
+
+\question The question relies upon the following joint pmf: 
+			\begin{center}
+\begin{tabular}{|cc|cc|}
+\hline
+&&\multicolumn{2}{c|}{$X$}\\
+&&0 & 1\\
+\hline
+\multirow{2}{*}{$Y$}
+&1& \multicolumn{1}{|c}{0.1} & 0.2\\
+&2& \multicolumn{1}{|c}{0.3} & 0.4\\
+\hline
+\end{tabular}
+\end{center}
+\begin{parts}
+  \part Calculate the conditional pmf of $Y$ given that $X = 0$.
+  \part Calculate the conditional pmf of $X$ given that $Y = 2$.
+\end{parts}
+
+%\question The question relies upon the following joint pmf: 
+%			\begin{center}
+%\begin{tabular}{|cc|cc|}
+%\hline
+%&&\multicolumn{2}{c|}{$X$}\\
+%&&0 & 1\\
+%\hline
+%\multirow{2}{*}{$Y$}
+%&1& \multicolumn{1}{|c}{0.1} & 0.2\\
+%&2& \multicolumn{1}{|c}{0.3} & 0.4\\
+%\hline
+%\end{tabular}
+%\end{center}
+%\begin{parts}
+%  \part Calculate $E[XY]$.
+%  \part Calculate $Cov(X,Y)$.
+%\end{parts}
+
+\question This question relies on the following joint pmf:
+  \begin{center}
+\begin{tabular}{|cc|ccc|}
+\hline
+&&\multicolumn{3}{c|}{$Y$}\\
+&&-1 & 0 & 1\\
+\hline
+\multirow{4}{*}{$X$}
+&0& \multicolumn{1}{|c}{1/9} & 1/9& 0\\
+&1& \multicolumn{1}{|c}{2/9} & 1/9& 1/9\\
+&2& \multicolumn{1}{|c}{0} & 1/9& 2/9\\
+\hline
+\end{tabular}
+\end{center}
+\begin{parts}
+\part Calculate $p_Y(0)$.
+\begin{solution}
+  $p_X(0) = p_{XY}(0,0) + p_{XY}(1,0) + p_{XY}(2,0) = 1/3$
+\end{solution}
+\part Calculate $p_{X|Y}(2|0)$.
+\begin{solution}
+  $p_{X|Y}(0|0) = (1/9) / (1/9 + 1/9 + 1/9) = 1/3$
+\end{solution}
+\part Calculate $E[XY]$.
+\begin{solution}
+  $E[XY] = (1 \times -1 \times 2/9) + (1 \times 1 \times 1/9) + (2 \times 1 \times 2/9) = (-2 + 1 + 4)/9 = 1/3$
+\end{solution}
+\part Calculate $Cov(X,Y)$
+\part Are $X$ and $Y$ independent? Why or why not?
+\begin{solution}
+  They are not independent: for example, if we know $Y=-1$ then $X$ cannot take on the value $2$. 
+\end{solution}
+\end{parts}
+
+
+
+\question Prove the shortcut formula for variance: $Var(X) = E[X^2] - \left( E[X] \right)^2$.
+
+\question Prove that $Cov(X,Y) = E[XY] - E[X]E[Y]$. Hint: the steps are similar to our derivation of the shortcut formula for variance from class.
+	\begin{solution}
+	By the Linearity of Expectation,
+	\begin{eqnarray*}
+	Cov(X,Y)&=& E[(X - \mu_X)(Y-\mu_Y)]\\
+			&=& E[XY - \mu_X Y - \mu_Y X + \mu_X \mu_Y]\\
+			&=&E[XY] - \mu_xE[Y] - \mu_Y E[X] + \mu_X \mu_Y\\
+			&=& E[XY] - \mu_X\mu_Y - \mu_Y\mu_X + \mu_X \mu_Y\\
+			&=& E[XY] - \mu_X \mu_Y\\
+			&=& E[XY] - E[X]E[Y]
+\end{eqnarray*}
+\end{solution}
+
+\question Let $X$ and $Y$ RVs with $E[X] = 2$ and $E[Y] = 1$. Calculate $E[X - Y]$.
+\begin{solution}
+  By the linearity of expectation: $E[X - Y] = E[X] - E[Y] = 1$. 
+\end{solution}
+
+\question Suppose $E[X] = 2$ and $Var(X) = 5$. Calculate $E[X^2]$.
+\begin{solution}
+  By the shortcut formula: $Var(X) = E[X^2] - \left( E[X] \right)^2$, so $E[X^2] = 9$.
+\end{solution}
+
+\question Let $X$ and $Y$ be RVs with $Var(X) = 2$ , $Var(Y) = 1$, and $Cov(X,Y) = 0$. Calculate $Var(X - Y)$.
+\begin{solution}
+  $Var(X - Y) = Var(X) + Var(Y) - 2 Cov(X,Y) = 3$
+\end{solution}
+
+\question Let $X$ and $Y$ be two RVs with $Var(X) = \sigma_X^2$, $Var(Y) = \sigma_Y^2$, and $Cov(X,Y) = \sigma_{XY}$. If $a,b,c$ are constants, what is $Var(cX + bY + a)$?
+
+\question Suppose that $X$ and $Y$ are two RVs with correlation $\rho = 0.3$, and standard deviations $\sigma_X = 4$ and $\sigma_Y = 5$.
+\begin{parts}
+  \part Calculate $Cov(X,Y)$.
+  \part Let $Z = (X + Y)/2$. Calculate $Var(Z)$.
+\end{parts}
+
+\question What does it mean for a sequence of random variables $X_1, X_2, \dots, X_n$ to be ``independent and identically distributed (iid)?''
+
+\question Mark each statment as TRUE or FALSE. If FALSE, explain.
+\begin{parts}
+  \part The expected value of a sum $E[X_1 + X_2 + \dots + X_n]$ is \emph{not} in general equal to the sum of the expected values $E[X_1] + E[X_2] + \dots + E[X_n]$. But when $X_1, X_2, \dots, X_n$ are independent then the two are equal.
+  \part The variance of a sum $Var(X_1 + X_2 + \dots + X_n)$ is always equal to the sum of the variances $Var(X_1) + Var(X_2) + \dots + Var(X_n)$.
+\end{parts}
+
+\question Suppose that $X \sim \text{Binomial}(n,p)$. 
+\begin{parts}
+  \part Explain how $X$ can be defined in terms of Bernoulli$(p)$ RVs.
+  \part Using the preceding part, derive $E[X]$.
+  \part Using the preceding part, derive $Var(X)$.
+\end{parts}
+
+\question Suppose that $X \sim \text{Binomial}(9, 1/3)$ and $Y \sim \text{Binomial}(4, 1/2)$. Calculate $E[(Y - X) / 2]$. 
+
+
+
+%\question Let $X$ and $Y$ be discrete random variables and $a,b,c,d$ be constants. Prove that $Cov(a+bX, c + dY) = bd Cov(X,Y)$.
+%		\begin{solution}
+%		Let $\mu_X = E[X]$ and $\mu_Y = E[Y]$. By the linearity of expectation,
+%			\begin{eqnarray*}
+%				E[a + bX] &=& a + b\mu_X\\
+%				E[c + dY] &=& c + d\mu_Y
+%			\end{eqnarray*}
+%	Thus, we have
+%			\begin{eqnarray*}
+%				(a+bx) - E[a + bX]&=& b(x - \mu_X)\\
+%				(c + dy) - E[c + dY]&=& d(y-\mu_Y)
+%			\end{eqnarray*}
+%	Substituting these into the definition of covariance: 
+%			\begin{eqnarray*}
+%				Cov(a+bX, c+dY) &=& \sum_{x} \sum_{y} \left[b(x - \mu_X)\right]\left[d(y-\mu_Y)\right]p(x,y)\\
+%					&=&bd\sum_{x} \sum_{y} (x - \mu_X)(y-\mu_Y)p(x,y)\\
+%					&=&bd Cov(X,Y)
+%			\end{eqnarray*}
+%		\end{solution}
+%
+\fullwidth{\section*{Lecture \#11 -- Continuous RVs I}}
+
+\question If $X$ is a continuous RV and $a,b$ are constants, how do we calculate $P(a \leq X \leq b)$?
+
+\question What are the two properties of a probability density function? 
+
+\question True or False: since $f(x)$ is a probability, $0\leq f(x) \leq 1$. If false, correct the statement.
+
+\question How is the PDF of a continuous RV related to its CDF?
+
+\question Let $X$ be a continuous RV with CDF $F$. Express $P(-2 \leq X \leq 4)$ in terms of $F$.
+
+\question Let $X$ be a continuous RV with CDF $F$. Express $P(X \geq x_0)$ in terms of $F$.
+
+\question Suppose that $X$ is a continuous RV with support set $[-1,1]$.
+\begin{parts}
+  \part Is $2$ a possible realization of this RV?
+  \part What is $P(X = 0.5)$?
+  \part True or False: $P(X\leq 0.3) = P(X < 0.3)$. Explain.
+\end{parts}
+
+\question Let $X$ be a Uniform$(0,1)$ RV. Calculate the CDF of $X$.
+
+\question Let $X$ be a Uniform$(0,1)$ RV. Calculate $Var(X)$.
+
+\question Let $X$ be a Uniform$(a,b)$ RV. Calculate $E[X]$
+
+\question Let $X$ be a continuous RV with support $[0,1]$ and $f(x) = C x^2(1 - x)$. Find $C$.
+\begin{solution}
+  $12$
+\end{solution}
+
+\question Let $X$ be a continuous RV with support $[0,1]$ and $f(x) = 3x^2$. Find the CDF of $X$.
+
+\question Let $X$ be a continuous RV with support $[0,1]$ and $f(x) = 3x^2$. Calculate $Var(X)$.
+
+\question Let $X$ be a continuous RV with support $[0,1]$ and $f(x) = 3x^2$. Calculate the probability that $X$ takes a value in the interval $[0.2, 0.8]$.
+
+\question Let $X$ be a RV with support set $[-2,2]$ and the following CDF:
+\[
+  F(x_0) = \left\{
+  \begin{array}{rr}
+    0, & x_0 < -2\\
+    x_0/4, & -2 \leq x_0 \leq 2\\
+    1, & x_0 > 2
+  \end{array}
+  \right.
+\]
+\begin{parts}
+  \part Calculate the PDF of $X$.
+  \part Is $X$ an example of one of the ``named'' RVs from the lecture slides? If so, which one? Be sure to specify the values of any and all parameters of the distribution.
+\end{parts}
+
+
+
+\fullwidth{\section*{Lecture \#12 -- Continuous RVs II}}
+
+
+\question Suppose that $X$ is a $N(\mu, \sigma^2)$ RV. 
+\begin{parts}
+\item What is $E[X]$?
+\item What is $Var(X)$?
+\item What is the support set of $X$?
+\item What is the median of $X$?
+\end{parts}
+
+\question Suppose that $X \sim N(\mu, \sigma^2)$. Approximately what are the values of the following probabilities?
+\begin{parts}
+  \part $P(\mu - \sigma \leq X \leq \mu + \sigma)$
+  \part $P(\mu - 2\sigma \leq X \leq \mu + 2\sigma)$
+  \part $P(\mu - 3\sigma \leq X \leq \mu + 3\sigma)$
+\end{parts}
+
+\question Write R code to accomplish the following tasks:
+\begin{parts}
+ \item Calculate the height of the standard normal PDF at $x = 0$.
+ \item Make 10 random draws from a standard normal distribution.
+ \item Calculate the 20th percentile of a standard normal distribution.
+  \item Calculate $P(X \leq 0.5)$ if $X \sim N(0,1)$.
+\end{parts}
+
+\question Write R code to plot the PDF and CDF of a standard normal RV between -5 and 5.
+
+\question Approximately what result would you get if you entered \texttt{pnorm(1)} at the R console? Hint: use symmetry and the ``empirical rule.''
+\begin{solution}
+  $\approx 0.84$
+\end{solution}
+
+\question Suppose that $X \sim N(0,1)$. What is $E[X^2]$?
+
+\question Define the quantile function $Q(p)$ of a continuous RV $X$. How is it related to the CDF $F(x_0)$ of $X$?
+
+\question Let $X \sim N(\mu = -2, \sigma^2 = 25)$. 
+Without using R, find the approximate value of
+\[P(-12 \leq X \leq 8)\] 
+\begin{solution}
+\[
+  P(-12 \leq X \leq *) = P(-2 \leq Z \leq 2) \approx 0.95
+\]
+where $Z \sim N(0,1)$.
+\end{solution}
+
+\question Write a line of R code that calculates the probability that $P(-0.2 \leq Z \leq 0.4)$ if $Z$ is a standard normal random variable.
+
+\question Suppose that $Y \sim N(\mu = 2, \sigma^2 = 4)$. 
+\begin{parts}
+  \part Write R code to calculate $P(-1\leq Y \leq 6)$.
+  \part Write R code to calculate $P(Y \geq 6)$.
+\end{parts}
+
+\question Suppose that $Z \sim N(0,1)$. Write the line of R code you would use to find $c>0$ such that $P(-c \leq Z \leq c) = 0.8$.
+\begin{solution}
+  \texttt{qnorm(0.9)} for $c$ or \texttt{qnorm(0.1)} for $-c$
+\end{solution}
+
+
+\question Suppose that $X_1 \sim N(0,1)$ independently of $X_2 \sim N(\mu = 2, \sigma^2 = 9)$.
+\begin{parts}
+  \part What kind of RV is $\frac{1}{3}(X_2 - 2)$? Specify the values of any and all of its parameters.
+  \part What kind of random variable is $X_1 + X_2$? Specify any and all of its parameters.
+\end{parts}
+
+\question Suppose that $X_1, \dots, X_n \sim \text{ iid } N(\mu, \sigma^2)$ and define $\bar{X}_n = (X_1 + X_2 + \dots + X_n) / n$.
+What kind of RV is $\bar{X}_n$?
+Specify the values of any and all of its parameters.
+
+
+\question Suppose that $X_1, \dots, X_n \sim N(\mu_X, \sigma_X^2)$ independently of $Y_1, \dots, Y_m \sim N(\mu_Y, \sigma^2_Y)$ and define $\bar{X}_n = (X_1 + \dots + X_n)/n$ and $\bar{Y}_m = (Y_1 + \dots + Y_m)/m$.
+What kind of RV is $\bar{X}_n - \bar{Y}_m$? 
+Specify the values of any and all of its parameters.
+
+\fullwidth{\section*{Lecture \#13 -- Sampling and Estimation I}}
+
+\question We gave a verbal definition of the term \emph{random sample} in lecture \#1. What is the mathematical definition?
+
+\question Why do draws made without replacement \emph{fail} to constitute a random sample? Under what circumstances does it become for all practical purposes irrelevant whether one draws with or without replacement?
+
+\question Suppose that we have a vector \texttt{x} that we will treat as a \emph{population} for the purpose of carrying out a simulation exercise.
+Write R code to generate a histogram of 1000 sample means, each of which is constructed from a random sample of size 10 drawn from \texttt{x}.
+
+\question Let $X_1, \dots, X_n \sim \text{iid}$ with mean $\mu$ and let $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$. Calculate $E[\bar{X}_n]$.
+
+\question Let $X_1, \dots, X_n \sim \text{iid}$ with mean $\mu$ and variance $\sigma^2$, and let $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$. Calculate $Var(\bar{X}_n)$
+
+\question Define the term \emph{standard error}. What is the standard error of the sample mean under random sampling?
+
+\question True or False: under random sampling, the population size $N$ affects the sampling distribution of $\bar{X}_n$. If false, explain.
+
+\question Define the term \emph{statistic}. 
+
+\question Explain the difference between an \emph{estimator} and an \emph{estimate}, using the sample mean as an example.
+
+\question Suppose that 20\% of registered Democrats plan to vote for Bernie Sanders in the 2020 Democratic Primary. 
+You poll a random sample of 3 Democrats and calculate the proportion $\widehat{p}$ who support Sanders. 
+What is the sampling distribution of $\widehat{p}$? 
+(Write out the support set and pmf.)
+
+
+\fullwidth{\section*{Lecture \#14 -- Sampling and Estimation II}}
+
+\question Define the \emph{bias} of an estimator. What does it mean for an estimator to be \emph{unbiased}?
+
+\question Why do we divide by $n-1$ in our definition of the sample variance?
+
+\question Define the concept of \emph{efficiency}. What does it mean to say that one estimator is \emph{more efficient} than another?
+
+\question Define \emph{mean-squared error}. Why is it a useful concept?
+
+\question Explain the difference between the \emph{finite sample} and \emph{asymptotic} properties of an estimator.
+
+\question What does it mean to say that an estimator $\widehat{\theta}_n$ is \emph{consistent} for $\theta_0$?
+
+\question Show that $\bar{X}_n$ is consistent for the population mean under random sampling.
+
+  \uplevel{For the following five questions, let $X_1, X_2, X_3, \dots, X_n \sim \mbox{iid}$ with mean $\mu$ and variance $\sigma^2$ and define $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$.}
+
+  \question Is $\bar{X}_n$ is an unbiased estimator of $\mu$? Why or why not?
+
+  \question Is $(0.1 X_1 + 0.9 X_2)$ is an unbiased estimator of $\mu$? Why or why not?
+  \begin{solution}
+    Yes: $E[0.1 X_1 + 0.9 X_2] = 0.1 E[X_1] + 0.9 E[X_2] = 0.1 \mu + 0.9\mu = \mu$
+  \end{solution}
+
+\question Is $(0.1X_1 + 0.9X_2)$ is a more efficient estimator of $\mu$ than $(0.5X_1 + 0.5X_2)$? Explain.
+\begin{solution}
+  No: both estimators are unbiased, so it makes sense to talk about ``efficiency,'' but $\mbox{Var}(0.1 X_1 + 0.9 X_2) = 0.01 \sigma^2 + 0.81 \sigma^2 = 0.82 \sigma^2$ which is much larger than $\mbox{Var}(0.5 X_1 + 0.5 X_2) = 0.5 \sigma^2$.
+\end{solution}
+
+\question Suppose $\mu$ is \emph{known} and we want to estimate $\sigma^2$. Is $\widetilde{\sigma}^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \mu)^2$ an unbiased estimator of $\sigma^2$?
+Justify your answer.
+\begin{solution}
+  It is a \emph{biased estimator}: $E[\widetilde{\sigma}] = \frac{1}{n-1} \sum_{i=1}^n E[(X_i - \mu)^2] = \frac{1}{n-1} \sum_{i=1}^n \mbox{Var}(X_i) = \frac{n}{n-1} \sigma^2 \neq 0$
+\end{solution}
+
+\question Calculate the bias and variance of the estimator  $\widehat{\mu} = \displaystyle\frac{n \bar{X}_n}{1 + n}$.
+Is $\widehat{\mu}$ consistent for $\mu$? 
+\begin{solution}
+  Yes: $\mbox{Bias}(\widehat{\mu}) = \left[ \left( \frac{n}{n+1} \right)E[\bar{X}_n] - \mu\right] = \left[ \left( \frac{n}{n+1} \right)\mu  - \mu\right]$ and $\mbox{Var}(\widehat{\mu}) = \left( \frac{n}{n+1} \right)^2 \mbox{Var}(\bar{X}_n) = \left( \frac{n}{n+1} \right)^2 \frac{\sigma^2}{n}$.
+  Both of these converge to zero as $n \rightarrow \infty$.
+\end{solution}
+
+\fullwidth{\section*{Lecture \#15 -- Confidence Intervals I}}
+
+\question Suppose $X_1, X_2, \dots, X_n \sim \text{ iid } N(\mu, \sigma^2)$ and define $Y = \sqrt{n}(\bar{X}_n - \mu)/\sigma$. What kind of random variable is $Y$? Specify any and all parameters of its distribution.
+
+\question Give the formula for an approximate 95\% confidence interval for the mean $\mu$ of a normal population with known variance $\sigma^2$, based on a random sample of size $n$.
+
+\question Give the formal definition of a confidence interval and the ``rough intuition'' that we can use to interpret it.
+
+\question Define the term \emph{confidence level} in the context of constructing a confidence interval. What symbol do we use to represent the confidence level of an interval?
+
+\question Define the following terms related to confidence intervals:
+\begin{parts}
+  \part Margin of error
+  \part Lower confidence limit (LCL)
+  \part Upper confidence limit (UCL)
+  \part Width
+\end{parts}
+
+\question Suppose that Alice and Bob each draw independent random samples of size $n=100$ from a normal population with unknown mean $\mu$ and known variance $\sigma^2=9$. Both of them construct 95\% confidence intervals for $\mu$. 
+\begin{parts}
+  \item Will the widths of Alice and Bob's confidence intervals be the same? Explain. 
+  \item Will the Alice and Bob's confidence intervals be identical? Explain.
+\end{parts}
+
+\question Suppose that we draw a random sample of $n = 25$ observations from a normal population with known variance $\sigma^2 = 4$ and unknown mean $\mu$. 
+\begin{parts}
+ \item What is the margin of error for an approximate 95\% CI for $\mu$?
+ \item Say we observe $\bar{x} = 2.5$. Construct an approximate 95\% CI for $\mu$.
+\end{parts}
+
+\question Give the formula for a $(1 - \alpha)\times 100\%$ confidence interval for the mean $\mu$ of a normal population with known variance $\sigma^2$, based on a random sample of size $n$.
+
+\question Explain how $\alpha$, $\sigma$, and $n$ affect the width of a confidence interval for the mean of a normal population with known variance $\sigma^2$.
+
+\question Suppose that I draw a random sample of size 64 from a normal population with known variance 16 and unknown mean $\mu$. My sample mean equals $-1.8$. Construct an approximate 68\% confidence interval for $\mu$.
+
+\fullwidth{\section*{Lecture \#16 -- Confidence Intervals II}}
+
+\question In what sense can we say that the values near the center of a symmetric confidence interval are ``more plausible'' than those near the LCL and UCL?
+
+  \question Suppose we observe $X_1, \dots, X_2 \sim N(\mu, \sigma^2)$. If we want to construct a confidence interval for $\mu$, does it make a difference if $\sigma^2$ is unknown and has to be estimated? Explain.
+
+  \question Let $X_1, \dots, X_{9} \sim N(\mu, \sigma^2)$ and define $\bar{X} = (\sum_{i=1}^9 X_i)/9$ and $S^2 = \left[ \sum_{i=1}^9 (X_i - \bar{X})^2 \right]/8$. If $S$ is the positive square root of $S^2$, then what kind of random variable is $3(\bar{X} - \mu)/S$? Be sure to specify the values of any and all parameters of its distribution.
+  \begin{solution}
+    $t(8)$.
+  \end{solution}
+
+  \question What is the support set of a Student-t random variable?
+
+  \question Under what circumstances is the Student-t random variable practically identical to the standard normal random variable?
+
+  \question Suppose that $X$ is a Student-t random variable with degrees of freedom equal to $10$. Write a line of R code to find $c$ such that $P(-c \leq X \leq c) = 0.68$. 
+
+  \question What is the median of a Student-t random variable with 17 degrees of freedom?
+  \begin{solution}
+    0
+  \end{solution}
+
+  \question Write out the formula for a $(1 - \alpha) \times 100\%$ CI for the mean $\mu$ of a normal population with unknown variance $\sigma^2$, based on a random sample of size $n$.
+
+  \question Alice and Bob each observe the same random sample $X_1, \dots, X_n$ from a normal population with mean $\mu$ and variance $\sigma^2$.
+  Each of them constructs a 95\% confidence interval for $\mu$.
+  Alice knows the true value of $\sigma^2$ while Bob does not.
+  Each researcher uses the appropriate confidence interval based on the information that she has available. 
+  \begin{parts}
+    \part Will Alice and Bob's intervals be centered in the same place?
+    \part Whose interval would we expect to be \emph{wider}?
+  \end{parts}
+
+  \question Suppose that $X_1, \dots, X_n$ are iid draws from some unknown population. If $n$ is large, what is the approximate sampling distribution of $\frac{\bar{X}_n - \mu}{S/\sqrt{n}}$?
+
+\question TRUE or FALSE: the Central Limit Theorem says that large populations are approximately normally distributed. If FALSE, correct the statement.
+
+\question Suppose that $X_1, \dots, X_n \sim \mbox { iid Bernoulli}(p)$ and let $\widehat{p}$ be the sample proportion of ones. Show that:
+\begin{parts}
+  \part $E(\widehat{p}) = p$
+  \part $Var(\widehat{p}) = p(1-p)/n$
+\end{parts}
+
+  \question Camilo wants to know the proportion $p$ of US voters who favor legalizing marijuana, so he carries out a poll based on a random sample.
+  Of the 100 individuals in his sample, 60 favor legalizing marijuana.
+  Based on this information, construct an approximate 95\% confidence interval for $p$.
+  \begin{solution}
+    $\widehat{p} = 60/100 = 0.6$ and $ME = 2\displaystyle\sqrt{\frac{0.6 \times 0.4}{100}}\approx 0.1$ so the CI is $0.6 \pm 0.1$ or equivalently $(0.5, 0.7)$.
+  \end{solution}
+
+  \question Suppose $X_1, \dots, X_n \sim \mbox{iid Bernoulli}(1/2)$, and define $\widehat{p} = (\sum_{i=1}^n X_i)/n$.
+  If $n=100$, approximately what is the probability that $0.45 \leq \widehat{p} \leq 0.55$?
+  \begin{solution}
+    Since $n$ is large, $\widehat{p}$ is approximately normal by the Central Limit Theorem. 
+    Its mean is $p = 1/2$ and its standard error is $\sqrt{p(1-p)/n} = \sqrt{0.5^2/100}= 0.5/10 = 0.05$, and the probability that a normal RV is within $\pm$ standard errors of its mean is about 0.68.
+  \end{solution}
+
+\fullwidth{\section*{Lecture \#17 -- Confidence Intervals III}}
+
+  \question Let $X_1, \dots, X_6 \sim \mbox{iid N}(\mu_x = 200, \sigma_x^2 = 54)$ and $Y_1, \dots, Y_{10} \sim \mbox{iid N}(\mu_y = 150, \sigma_y^2 = 160)$ where the $X$ and $Y$ observations are independent.
+  Approximately what is the probability that $\bar{X} - \bar{Y} > 55$? 
+  \begin{solution}
+    $\bar{X} - \bar{Y} \sim \mbox{N}(\mbox{mean} = 50, \mbox{SD} = 5)$ so this is just the probability that a normal is at least one standard deviation above its mean, which is approximately $16\%$.
+  \end{solution}
+
+  \question Let $X_1, \dots, X_n$ be a random sample from a population with mean $\mu_X$ and variance $\sigma_X^2$, and $Y_1, \dots, Y_m$ be a random sample from a \emph{different} population with mean $\mu_Y$ and variance $\sigma_Y^2$. Suppose that the $X$ and $Y$ observations are independent of one another.
+  \begin{parts}
+  \item Derive the standard error of $\bar{X}_n - \bar{Y}_m$. 
+  \item Suppose that we do not know $\sigma_X^2$ or $\sigma_Y^2$. How can we estimate $SE(\bar{X}_n - \bar{Y}_m)$?
+  \item Let $\widehat{SE}$ be your proposed estimator from part (b). If $n$ and $m$ are both large, what is the approximate sampling distribution of $[(\bar{X}_n - \bar{Y}_m) - (\mu_X - \mu_Y)]/\widehat{SE}$?
+  \end{parts}
+
+  \question Suppose that we observe hourly wages for a random sample of 20 college graduates: the sample mean is \$31 with a standard deviation of \$15.
+  In contrast, the sample mean wage is \$17 with a standard deviation of \$10 for a sample of 30 non-college graduates.
+  Construct an approximate 95\% confidence interval for the difference in population mean wages ($\mu_X - \mu_Y$) between college graduates ($X$) and non-college graduates ($Y$).
+
+  \question Xanthippe wants to know which university has a higher proportion of philosophy majors: Penn or Princeton.
+  She polls a random sample of 100 Penn students -- 10 are philosophy majors.
+  In contrast, 7 of the 50 Princeton students she polls are philosophy majors.
+  Construct an approximate 95\% confidence interval for the difference in proportions of philosophy majors: Penn minus Princeton.
+
+
+  \question TRUE or FALSE: Regardless of whether our dataset consists of independent samples or matched pairs, the confidence interval turns out to be exactly the same. If FALSE, correct the statement.
+
+  \question Suppose we observe two datasets: $x_1, \dots, x_n$ and $y_1, \dots, y_n$ with sample standard deviations $s_x = 3$ and $s_y = 4$ and sample correlation $r_{xy} = 0.5$.
+  Calculate the sample variance $s_d^2$ of $d_1, \dots, d_n$ where $d_i = x_i - y_i$.
+  \begin{solution}
+    $s_d^2 = s_x^2 + s_y^2 - 2 s_x s_y r_{xy} = 9 + 16 - 2 \times 3 \times 4 \times 0.5 = 25 - 12 = 13$
+  \end{solution}
+
+\question Let $D_i = X_i - Y_i$. Show that $\bar{D}_n = \bar{X}_n - \bar{Y}_n$, where $\bar{D}_n, \bar{X}_n, \bar{Y}_n$ denote the sample means of $D, X$, and  $Y$.
+
+\question Let $D_i = X_i - Y_i$. Show that $S_D^2 = S_X^2 + S_Y^2 - 2 S_X S_Y r_{XY}$ where $S_D, S_X, S_Y$ denote the sample standard deviations of $D, X$, and $Y$, and $r_{XY}$ is the sample correlation between $X$ and $Y$.
+
+\question For each example, indicate whether it involves \emph{matched pairs} or \emph{independent samples}.
+\begin{parts}
+  \part To compare the performance of the two brands, Alice installs Firestone tires on half of the cars in the \emph{Consumer Reports} test garage, and Michelin tires on the rest. 
+  \part To determine the effect of listening to music on his workers' productivity, Bob installs a radio in the office.
+  During the month of March, he keeps the radio turned on all day.
+  During the month of April, he keeps it turned off.
+  \part To test the effectiveness of a new marketing campaign, Charlotte takes out new advertisements in half of the cities where her firm has a retail presence. She leaves the old advertisements in place in the remaining cities.
+\item Dan compares the wages of male and female high school teachers in Philadelphia.
+\item To determine the effect of college attendance on wages, Elise studies a sample identical twins in which one twin attended college and the other didn't.
+\end{parts} 
+
+\question What are the two equivalent ways to construct a matched pairs CI?
+
+\question Let $(X_1, Y_1), \dots, (X_n, Y_n)$ be a random sample of matched pairs. 
+Suppose that you erroneously construct an independent samples confidence interval for $\mu_X - \mu_Y$ using these observations.
+If the observations $(X_i, Y_i)$ within a given pair are \emph{negatively correlated}, will your interval be too wide or too narrow? 
+Explain.
+
+\fullwidth{\section*{Lecture \#18 -- Hypothesis Testing I}}
+
+\question Define the term \emph{type I error}.
+
+\question Define the term \emph{type II error}.
+
+\question What was our null hypothesis in the Pepsi Challenge experiment from class?
+
+\question What was our alternative hypothesis in the Pepsi Challenge experiment from class?
+
+  \question In the ``Pepsi Challenge'' experiment from class there were four cups of Coke and four of Pepsi.
+In this question, consider a modified version of the experiment with \emph{three} cups of each kind of soda.
+Everything else is unchanged.
+Calculate the probability that our test statistic, the number of cokes correctly identified, will equal two \emph{under the null hypothesis}.
+\begin{solution}
+  \[
+    \frac{ \displaystyle {3 \choose 2} \times {3 \choose 1} }{\displaystyle{6 \choose 3}} = \frac{3 \times 3}{20} = 9/20 = 0.45
+  \]
+\end{solution}
+
+
+\end{questions}
+
+\end{document}

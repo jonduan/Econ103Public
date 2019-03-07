@@ -172,8 +172,8 @@ If $B \subseteq A$, then all the basic outcomes in $B$ are also in $A$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Proof of Logical Consequence Rule (Optional)}
-\framesubtitle{Proof won't be on a quiz or exam but is good practice with probability axioms.}
+\frametitle{Proof of Logical Consequence Rule}
+
 	\begin{columns}
 	
 \column{0.75\textwidth}
@@ -368,6 +368,64 @@ Procedure
 \end{enumerate}
 
 \begin{alertblock}{Monte Carlo Approximation of Desired Probability $\displaystyle= \frac{m}{N}$}\end{alertblock}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+
+\footnotesize
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{draw_simulation} \hlkwb{<-} \hlkwa{function}\hlstd{() \{}
+  \hlstd{cards} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{'GG'}\hlstd{,} \hlstr{'OG'}\hlstd{,} \hlstr{'OO'}\hlstd{)}
+  \hlstd{random_card} \hlkwb{<-} \hlkwd{sample}\hlstd{(cards,} \hlkwc{size} \hlstd{=} \hlnum{1}\hlstd{)}
+  \hlkwa{if}\hlstd{(random_card} \hlopt{==} \hlstr{'GG'}\hlstd{) \{}
+    \hlstd{faces} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{'G'}\hlstd{,} \hlstr{'G'}\hlstd{)}
+  \hlstd{\}} \hlkwa{else if} \hlstd{(random_card} \hlopt{==} \hlstr{'OO'}\hlstd{) \{}
+    \hlstd{faces} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{'O'}\hlstd{,} \hlstr{'O'}\hlstd{)}
+  \hlstd{\}} \hlkwa{else} \hlstd{\{}
+    \hlstd{faces} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{'O'}\hlstd{,} \hlstr{'G'}\hlstd{)}
+  \hlstd{\}}
+  \hlstd{out} \hlkwb{<-} \hlkwd{sample}\hlstd{(faces)}
+  \hlkwd{names}\hlstd{(out)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{'front'}\hlstd{,} \hlstr{'back'}\hlstd{)}
+  \hlkwd{return}\hlstd{(out)}
+\hlstd{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+
+\footnotesize
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}\hlstd{(}\hlnum{54321}\hlstd{)}
+\hlstd{simulations} \hlkwb{<-} \hlkwd{replicate}\hlstd{(}\hlkwc{n} \hlstd{=} \hlnum{1000}\hlstd{,} \hlkwd{draw_simulation}\hlstd{())}
+\hlstd{simulations} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(}\hlkwd{t}\hlstd{(simulations))}
+\hlkwd{head}\hlstd{(simulations)}
+\end{alltt}
+\begin{verbatim}
+##   front back
+## 1     O    G
+## 2     G    G
+## 3     G    G
+## 4     O    G
+## 5     G    G
+## 6     O    O
+\end{verbatim}
+\begin{alltt}
+\hlstd{Obama_on_front} \hlkwb{<-} \hlkwd{subset}\hlstd{(simulations, front} \hlopt{==} \hlstr{'O'}\hlstd{)}
+\hlkwd{mean}\hlstd{(Obama_on_front}\hlopt{$}\hlstd{back} \hlopt{==} \hlstr{'O'}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.6633065
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -646,7 +704,6 @@ If $E_1, E_2, \hdots, E_k$ are mutually exclusive, collectively exhaustive event
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Deriving the Law of Total Probability For $k=2$}
-\framesubtitle{Optional proof: You \alert{are not responsible} for this proof on quizzes and exams.}
 
 \begin{columns}
 
@@ -684,94 +741,94 @@ Combining, $\alert{P(A) = P(A|B)P(B) + P(A|B^c)P(B^c)}$}
 \end{columns}
 
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Prediction Markets, ``Dutch Book''}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-
-\frametitle{How do prediction markets work?}
-\framesubtitle{To learn more, see \fbox{\href{http://www.aeaweb.org/articles.php?doi=10.1257/0895330041371321}{Wolfers \& Zitzewitz (2004)}}}
-\begin{center}
-\fbox{\fbox{\begin{minipage}{0.6\textwidth}
-  \textsc{This certificate entitles the bearer to \$1 if the Patriots win the 2016-2017 Superbowl.} 
-\end{minipage}}}
-\vspace{1em}
-
-\begin{block}{Buyers -- Purchase Right to Collect}
-Patriots very likely to win $\Rightarrow$ buy for close to \$1. \\ Patriots very unlikely to win $\Rightarrow$ buy for close to \$0.
-\end{block}
-
-\begin{block}{Sellers -- Sell Obligation to Pay} 
-Patriots very likely to win $\Rightarrow$ sell for close to \$1. \\Patriots very unlikely to win $\Rightarrow$ sell for close to \$0.
-\end{block}
-\end{center}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-
-  \begin{block}{Probabilities from Beliefs}
-    Market price of contract encodes market participants' beliefs in the form of probability:
-$$\mbox{Price}/\mbox{Payout}\approx \mbox{Subjective Probability}$$
-  \end{block} \pause
-
-	\begin{alertblock}{``Dutch Book''}
-    If the probabilities implied by prediction market prices violate \emph{any} of our probability rules there is a \emph{pure arbitrage opportunity}: a way make to make a guaranteed, risk-free profit.
-	\end{alertblock} \pause
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{A Real-world Dutch Book}
-\framesubtitle{Courtesy of  \fbox{\href{http://offsettingbehaviour.blogspot.co.nz/2012/11/barriers-to-arbitrage.html}{Eric Crampton}}}
-
-\begin{block}{November 5th, 2012}
-	\begin{itemize}
-		\item\$2.30 for contract paying \$10 if Romney wins on BetFair
-		\item \$6.58 for contract paying \$10 if Obama wins on InTrade
-	\end{itemize}
-\end{block}
-
-\begin{block}{Implied Probabilities}
-	\begin{itemize}
-	\item BetFair: $P(Romney) \approx 0.23$
-	\item InTrade: $P(Obama) \approx 0.66$
-	\end{itemize}
-\end{block}
-
-\begin{alertblock}{What's Wrong with This?}\pause
- Violates complement rule! $P(Obama) = 1 - P(Romney)$ but the implied probabilities here don't sum up to one!
-\end{alertblock}
-
-
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{A Real-world Dutch Book}
-\framesubtitle{Courtesy of  \fbox{\href{http://offsettingbehaviour.blogspot.co.nz/2012/11/barriers-to-arbitrage.html}{Eric Crampton}}}
-
-\begin{block}{November 5th, 2012}
-	\begin{itemize}
-		\item\$2.30 for contract paying \$10 if Romney wins on BetFair
-		\item \$6.58 for contract paying \$10 if Obama wins on InTrade
-	\end{itemize}
-\end{block}
-
-\begin{alertblock}{Arbitrage Strategy}
-Buy Equal Numbers of Each 
-	\begin{itemize}
-		\item Cost = \$2.30 + \$6.58 =\$8.88 per pair 
-		\item Payout if Romney Wins: \$10 
-		\item Payout if Obama Wins: \$10
-		\item Guaranteed Profit: \$10 - \$8.88 = \$1.12 per pair
-	\end{itemize} 
-
-\end{alertblock}
-
-
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Prediction Markets, ``Dutch Book''}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%
+%\frametitle{How do prediction markets work?}
+%\framesubtitle{To learn more, see \fbox{\href{http://www.aeaweb.org/articles.php?doi=10.1257/0895330041371321}{Wolfers \& Zitzewitz (2004)}}}
+%\begin{center}
+%\fbox{\fbox{\begin{minipage}{0.6\textwidth}
+%  \textsc{This certificate entitles the bearer to \$1 if the Patriots win the 2016-2017 Superbowl.} 
+%\end{minipage}}}
+%\vspace{1em}
+%
+%\begin{block}{Buyers -- Purchase Right to Collect}
+%Patriots very likely to win $\Rightarrow$ buy for close to \$1. \\ Patriots very unlikely to win $\Rightarrow$ buy for close to \$0.
+%\end{block}
+%
+%\begin{block}{Sellers -- Sell Obligation to Pay} 
+%Patriots very likely to win $\Rightarrow$ sell for close to \$1. \\Patriots very unlikely to win $\Rightarrow$ sell for close to \$0.
+%\end{block}
+%\end{center}
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%
+%  \begin{block}{Probabilities from Beliefs}
+%    Market price of contract encodes market participants' beliefs in the form of probability:
+%$$\mbox{Price}/\mbox{Payout}\approx \mbox{Subjective Probability}$$
+%  \end{block} \pause
+%
+%	\begin{alertblock}{``Dutch Book''}
+%    If the probabilities implied by prediction market prices violate \emph{any} of our probability rules there is a \emph{pure arbitrage opportunity}: a way make to make a guaranteed, risk-free profit.
+%	\end{alertblock} \pause
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{A Real-world Dutch Book}
+%\framesubtitle{Courtesy of  \fbox{\href{http://offsettingbehaviour.blogspot.co.nz/2012/11/barriers-to-arbitrage.html}{Eric Crampton}}}
+%
+%\begin{block}{November 5th, 2012}
+%	\begin{itemize}
+%		\item\$2.30 for contract paying \$10 if Romney wins on BetFair
+%		\item \$6.58 for contract paying \$10 if Obama wins on InTrade
+%	\end{itemize}
+%\end{block}
+%
+%\begin{block}{Implied Probabilities}
+%	\begin{itemize}
+%	\item BetFair: $P(Romney) \approx 0.23$
+%	\item InTrade: $P(Obama) \approx 0.66$
+%	\end{itemize}
+%\end{block}
+%
+%\begin{alertblock}{What's Wrong with This?}\pause
+% Violates complement rule! $P(Obama) = 1 - P(Romney)$ but the implied probabilities here don't sum up to one!
+%\end{alertblock}
+%
+%
+%
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{A Real-world Dutch Book}
+%\framesubtitle{Courtesy of  \fbox{\href{http://offsettingbehaviour.blogspot.co.nz/2012/11/barriers-to-arbitrage.html}{Eric Crampton}}}
+%
+%\begin{block}{November 5th, 2012}
+%	\begin{itemize}
+%		\item\$2.30 for contract paying \$10 if Romney wins on BetFair
+%		\item \$6.58 for contract paying \$10 if Obama wins on InTrade
+%	\end{itemize}
+%\end{block}
+%
+%\begin{alertblock}{Arbitrage Strategy}
+%Buy Equal Numbers of Each 
+%	\begin{itemize}
+%		\item Cost = \$2.30 + \$6.58 =\$8.88 per pair 
+%		\item Payout if Romney Wins: \$10 
+%		\item Payout if Obama Wins: \$10
+%		\item Guaranteed Profit: \$10 - \$8.88 = \$1.12 per pair
+%	\end{itemize} 
+%
+%\end{alertblock}
+%
+%
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

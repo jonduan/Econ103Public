@@ -14,6 +14,10 @@
 \newtotcounter{quizcounter}
 \newcommand{\quiz}{\addtocounter{quizcounter}{1}\fbox{\textbf{Quiz \#\arabic{quizcounter}}}}
 
+%%%%%%%%%%%%% A Command to create an automatically problem set icon in the course calendar.
+\newtotcounter{pscounter}
+\newcommand{\ps}{\addtocounter{pscounter}{1}\fbox{\textbf{PS \#\arabic{pscounter} Due}}}
+
 
 % Some useful commands (our classes always meet either on Monday and Wednesday 
 % or on Tuesday and Thursday)
@@ -52,7 +56,7 @@ Statistics for Economists\\
 \large
 Economics 103\\
 \large
-Spring 2018
+Spring 2019
 \end{center}
 
 
@@ -60,8 +64,8 @@ Spring 2018
 \normalsize
 
 \noindent \textbf{Course Instructor:} Francis DiTraglia \\
-Office: MCNB 535\\
-Office Hours: M 2--4pm 
+Office: PCPSE 630\\
+Office Hours: M 3--4pm, R 4--5pm
 
 \medskip
 
@@ -73,8 +77,8 @@ Office Hours: M 2--4pm
 
 \begin{tabular}{llll}
   & Assa Cohen & Philippe Goulet Coulombe & Gabrielle Vasey\\
-Office:& MCNB 421 & MCNB 342 & MCNB 420 \\ 
-Office Hours:& T 6:30--8:30pm & W 1--3pm & R 1--3pm  
+Office:& PCPSE 141& PCPSE 208 & PCPSE 500 \\ 
+Office Hours:& F 11am--1pm & M 11am-noon, 2--3pm & M 9--11am   
 \end{tabular}
 
 \medskip
@@ -88,7 +92,7 @@ Office Hours:& T 6:30--8:30pm & W 1--3pm & R 1--3pm
 
 \begin{tabular}{llllll}
 	Section 201 & Section 202 & Section 203 & Section 204 & Section 205 & Section 206\\ 
-  Philippe & Gabrielle & Assa & Gabrielle & Assa & Philippe\\
+  Philippe & Assa & Gabrielle & Assa & Gabrielle & Philippe \\
 	MCNB 285 & WILL 204 & MCNB 167-8 & WILL 204 & MCNB 285 & WILL 216 \\ 
   M 10--11am & F 9--10am & M noon--1pm & F 10--11am & M 11am--noon & M 1--2pm
 \end{tabular}
@@ -96,41 +100,9 @@ Office Hours:& T 6:30--8:30pm & W 1--3pm & R 1--3pm
 
 \medskip
 
-%ECON-103  STAT FOR ECONOMISTS               1 CU
-%     REGISTRATION REQUIRED FOR LEC, REC
-%     COLLEGE QUANTITATIVE DATA ANALYSIS REQ.
-% 001 LEC TR 9-10:30AM ANNS 110       DITRAGLIA F
-%     MAX: 144               
-%          RECITATION                        0 CU
-% 201 REC M 10-11AM MCNB 285      GOULET COULOMBE
-%     MAX: 24                
-% 202 REC F 9-10AM WILL 204       GOULET COULOMBE
-%     MAX: 24                
-% 203 REC M 12-1PM MCNB 167-8             VASEY G
-%     MAX: 24                
-% 204 REC F 10-11AM WILL 204              VASEY G
-%     MAX: 24                
-% 205 REC M 11-12NOON MCNB 285            COHEN A
-%     MAX: 24                
-% 206 REC M 1-2PM WILL 216                COHEN A
-%     MAX: 0                 
-%
-
-%\noindent \textbf{Recitation Instructors:}
-%Assa Cohen,
-%Philippe Goulet Coulombe,
-%Gabrielle Vasey
-%\medskip
-
-
-%\noindent \textbf{Office Hours:} \emph{For times and locations, see the semester calendar on the \href{http://ditraglia.com/Econ103Public}{course website}.}
-
-
 \medskip
  
-\noindent \textbf{Course Website:} \url{http://ditraglia.com/Econ103Public} At this url you can 
-%view the semester calendar and 
-download all lecture slides, problem sets, etc.
+\noindent \textbf{Course Website:} \url{http://ditraglia.com/Econ103Public} At this url you can download all lecture slides, homework problems, etc.
 You can view your grades and log-on to the course discussion forum, Piazza, at \url{https://canvas.upenn.edu}.
 
 \medskip
@@ -150,52 +122,32 @@ After completing this course you will be able to carry out simple statistical an
 
 \medskip
 
-%\noindent \textbf{Lecture Recordings:} 
-%Audio and screen captures of the lectures for this course will be recorded and posted on \href{http://upenn.instructure.com}{Canvas}. 
-%This is a great way to get caught up if you miss a lecture.
-%Be aware, however, that the lecture recording system is not 100\% reliable and the instructors have no direct control over it: in a typical semester one or two lectures will fail to be recorded due to technical problems.
-%If you encounter any problems with the recordings, please contact \texttt{mms-help@sas.upenn.edu} directly.
-%\medskip
 
 \noindent \textbf{Prerequisites:} 
 The prerequisites for this course are Math 104 followed by 114 or 115. 
-%To help you determine if this course is right for you we will administer a short math quiz early in the semester.
-%Although it will not count towards your grade, you must pass this quiz to be allowed to take the first midterm.
-%You may re-take the math quiz as many times as necessary until you pass.
 
 
 
 \medskip
 
-\noindent \textbf{Required Text:} 
-The textbook for this course is \emph{Introductory Statistics for Business and Economics}, 4\textsuperscript{th} Edition by Thomas H.\ and Ronald J.\ Wonnacott (WW4). 
-The price in the bookstore is outrageous; buy a used copy on \href{http://tinyurl.com/ECON103-2013A}{Amazon} instead. 
-I will list suggested readings on Piazza each week during the semester.
-Any readings that do not come from the text will be downloadable from Piazza.
-While I strongly encourage you to complete the reading assignments, my lecture slides are the final authority on course material.
+\noindent \textbf{Textbook:} 
+\emph{Introductory Statistics for Business and Economics}, 4\textsuperscript{th} Edition by Thomas H.\ and Ronald J.\ Wonnacott (WW4). 
+Used copies are available on \href{http://tinyurl.com/ECON103-2013A}{Amazon} for under \$20.
+I will list suggested readings on Piazza every week. 
+While I encourage you to complete the reading assignments, my lecture slides and homework assignments are the final authority on course material.
 
 \medskip
-
-
-%\noindent \textbf{Required Technology: } 
-%We will be using the ``clickers'' for experiments and class participation exercises during the semester.
-%Both the ResponseCard NXT and the ResponseCard QT are fully compatible with the exercises we will complete this semester.
-%Other ResponseCard models will only work for some of the exercises so to make sure you get full participation credit (see below) make sure you have the right model.
-%You can buy or rent a clicker from the Penn Bookstore.
-%As clicker participation will make up 5\% of your course grade it is important that you bring your clicker to each lecture. 
-%I fully understand, however, that things can go wrong: your clicker might stop working or you might forget to bring it after pulling an all-nighter.
-%For this reason you will \emph{automatically} be excused from clicker participation for four lectures: there is no need to inform us in advance or after the fact. There will, however, be no further exceptions. 
-%I will begin keeping track of clicker participation in our second lecture. For more details, see ``Participation'' below. 
-%Because clickers will determine a portion of your grade, their use is subject to the code of academic integrity, as explained below under ``Academic Integrity.'' 
-%
 
 
 \noindent \textbf{Required Software:} 
 We will use the statistical package R via a front-end called RStudio throughout the course. 
-Both R and RStudio are free and open source. Installation instructions appear on the last page of this syllabus.
+Both R and RStudio are free and open source. 
+I will post installation instructions on Piazza.
+%Installation instructions appear on the last page of this syllabus.
 RStudio is also available in the Undergraduate Data Analysis Lab (UDAL) in McNeil rooms 104 and 108--9. 
-You will be taught to use R in lecture, recitations, and through as series of tutorials that I will assign as homework. (See ``Homework'' below.)  
-Additional R resources are listed on the last page of this syllabus.
+You will learn to use R in lecture, recitations, and through as series of tutorials that I will assign as homework. (See ``R Tutorials'' below.)  
+%Additional R resources are listed on the last page of this syllabus.
+As part of the course, every student will also receive a free premium subscription to \href{https://datacamp.com}{DataCamp}.
 
 \medskip
 
@@ -211,10 +163,9 @@ If you're having trouble with R and prefer a printed book to the free online res
 
 \noindent \textbf{Departmental Course Policies: } 
 All Economics Department course policies are in force in Econ 103 even if not explicitly listed on this syllabus. 
-See: \url{http://economics.sas.upenn.edu/undergraduate-program/course-information/guidelines/policies} for full details. 
+See: \url{https://economics.sas.upenn.edu/undergraduate/course-information/course-policies} for full details.
 
-
-\bigskip
+\medskip
 
 
 \noindent \textbf{Academic Integrity: } 
@@ -225,33 +176,58 @@ We will check identification cards at exams so please to bring yours.
 \medskip
 
 \noindent \textbf{Piazza:} 
-We will be using an online discussion forum called Piazza, accessible via \href{http://upenn.instructure.com}{Canvas}, for all written communication in this course.
+We will use an online discussion forum called Piazza, accessible via \href{http://upenn.instructure.com}{Canvas}, for all written communication in this course.
 We will use Piazza to make course announcements, answer questions about course material and respond to private messages from individual students regarding personal issues.
-By asking your question and getting an answer on Piazza, you create a positive externality: other students benefit from your questions and you benefit from theirs.
-You can even post anonymously if asking questions publicly makes you uncomfortable.
-The instructor and RIs will actively moderate Piazza both to answer questions and approve (or correct) answers written by your fellow-students.
+%By asking your question and getting an answer on Piazza, you create a positive externality: other students benefit from your questions and you benefit from theirs.
+%You can even post anonymously if asking questions publicly makes you uncomfortable.
+%The instructor and RIs will actively moderate Piazza both to answer questions and approve (or correct) answers written by your fellow-students.
 We will award extra credit for constructive questions, answers, and notes that you post on Piazza, even if you post anonymously.
 See below under ``Extra Credit'' for details.
-As mentioned above under ``Email Policy,'' all written communication for Econ 103 should be directed to Piazza, not to the instructors' personal email accounts.
+%As mentioned above under ``Email Policy,'' please direct all written communication for Econ 103 to Piazza rather than the instructors' personal email accounts.
+
+\section*{Homework}
+Homework will consist of three components: review questions, extension problems, and online R tutorials. 
+With the exception of R tutorials, homework will neither be collected nor graded.
 
 \medskip
+\noindent \textbf{Review Questions:} 
+Corresponding to each lecture of the semester are 10--15 ``review questions'' covering the basic knowledge that you will need to acquire this semester to pass the course.
+These are available from the \href{http://ditraglia.com/Econ103Public}{Course Website}.
+After a given lecture, and before the next one, you should solve all of the associated review questions. 
+To give you an incentive to keep up with the course material, all quiz questions for the course will be randomly selected from this list: see ``Quizzes'' below.
+We will not circulate solutions to review questions.
+Compiling your own solutions is an important part of studying for the course.
+We will be happy to discuss any of the review questions with you in person or on Piazza, and you are most welcome to discuss them with your classmates.
+Be warned, however, that memorizing answers written by a classmate is a risky strategy.
+It may get you through the quiz, but will leave you unprepared for exams.
 
-\noindent \textbf{Homework:} 
-I will post homework assignments on Piazza each week during the semester.
-Although homework will neither be collected nor graded, it is \emph{crucial} that you keep up with the homework on a weekly basis if you hope to do well in the course.
-Solutions will to homework problems will be provided.
-Be sure to use these responsibly: you gain nothing by merely reading the answers. 
-As an extra incentive to keep up with the homework, one problem from each  exam (including midterms and finals) will be taken directly from your assigned homework for the relevant portion of the course.
+\medskip
+\noindent \textbf{Extension Problems:} 
+Unlike review questions, extension problems are designed to give you a deeper understanding of the lecture material and challenge you to apply what you have learned in new settings.
+Extension problems should only be attempted \emph{after} you have completed the corresponding review problems.
+%Extension problems are intended to be completed \emph{after} you the quiz for a given lecture. 
+%For example, Quiz \#2 on January 31st covers lectures 3--4. 
+%This means that you should complete the extension problems for lectures 3--4 over the weekend of February 1st--3rd.
+As an extra incentive to keep up with the course material, each exam of the semester will contain at least one problem taken \emph{verbatim} from the extension problems.
+We will circulate solutions to the relevant extension questions the weekend before each exam.
+Like the review questions, extension problems are available from the \href{http://ditraglia.com/Econ103Public}{Course Website}.
+
+\medskip
+\noindent \textbf{R Tutorials:}
+While I will provide numerous R code examples in lecture, you cannot really learn to program by reading a set of slides: you have to spend time working with R yourself.
+As such, I will assign a number of online R tutorials from \href{https://datacamp.com}{DataCamp} as homework to complement the in-person R instruction that you will receive in lecture and recitations.
+Although these will not be graded, completion of these assignments will count towards your recitation grade: see ``Recitations'' below.
+Later in the semester, R material will appear in extension problems and midterm and final exams.
+
 
 
 
 \section*{Assignments and Grading}
 
-Grades for this course will be determined based on ten in-class quizzes, two in-class midterms, and a comprehensive final examination that will take place during the exam period.
-Specifically,
+Grades for this course will be determined based on recitations, quizzes, two in-class midterms, and a comprehensive final examination that will take place during the exam period:
 	\begin{equation*}
 	\begin{split}
-		\mbox{Overall Score} = (30\% \times \mbox{Quizzes})  + (20\% \times \mbox{Midterm 1}) + (20\% \times \mbox{Midterm 2}) + (30\% \times \mbox{Final}).
+    \mbox{Grade} = 10\% \times \mbox{Recitation} + 20\% \times \mbox{Quizzes} + 20\% \times \mbox{Midterm1} + 20\% \times \mbox{Midterm2} + 30\% \times \mbox{Final}.
 	\end{split}
 	\end{equation*}
 You can earn extra credit worth up to 5\% of your course grade: see ``Extra Credit'' for details.
@@ -259,37 +235,54 @@ You can earn extra credit worth up to 5\% of your course grade: see ``Extra Cred
 \medskip 
 
 \noindent \textbf{Course Curve:}
-If necessary, I will curve overall course scores (\emph{not} individual assignments) so that approximately 30\% fall in the A-range, 40-50\% fall in the B-range, and the bulk of the remaining 20-30\% fall in the C-range. 
-I reserve grades below a C-minus for those cases in which a student fails to attain a minimum level of basic competence in statistics, an absolute rather than relative standard. 
-If you are in danger of failing to meet this minimum standard, you will receive a course problem notice.
-I will only curve the course in your favor, so the most stringent possible grade boundaries are: A-range = 90-100, B-range = 80-89, C-range = 70-79, D-range = 60-69.
-(In this case, the top two points of each range would be a ``plus'' and the bottom two points a ``minus.'')
+There will be no curve in Econ 103.
+Grade boundaries will be as follows:
+\begin{center}
+\begin{tabular}{lr|lr|lr|lr}
+  A+ & 98--100\%& B+ & 88--89\% & C+ & 78--79\% & D+ & 68--69\% \\
+  A  & 92--97\% & B  & 82--87\% & C  & 72--77\% & D & 60--67\%\\
+  A- & 90--91\% & B- & 80--81\% & C- & 70--71\% & F & 0--59\%\\
+\end{tabular}
+\end{center}
+%If necessary, I will curve overall course scores (\emph{not} individual assignments) so that approximately 30\% fall in the A-range, 40-50\% fall in the B-range, and the bulk of the remaining 20-30\% fall in the C-range. 
+%I reserve grades below a C-minus for those cases in which a student fails to attain a minimum level of basic competence in statistics, an absolute rather than relative standard. 
+%If you are in danger of failing to meet this minimum standard, you will receive a course problem notice.
+%I will only curve the course in your favor, so the most stringent possible grade boundaries are: A-range = 90-100, B-range = 80-89, C-range = 70-79, D-range = 60-69.
+%(In this case, the top two points of each range would be a ``plus'' and the bottom two points a ``minus.'')
 
 \medskip
 
 
 \noindent \textbf{Quizzes:} 
-There will be ten short, in-class quizzes over the course of the semester.
-For dates, see the semester calendar on the last page of this document.
-Unless otherwise indicated, each quiz will cover the material from the most recent lectures since the last quiz or midterm.
-When calculating your quiz average, I will drop your three lowest scores and weight the remaining quizzes evenly. 
-There will be no makeup quizzes so be sure to use your three ``free skips'' carefully.
-Quizzes will not be returned and answers will not be posted but, your RI will be happy to go over your quiz with you in office hours if you wish. 
+There will be 11 in-class quizzes over the course of the semester: see the semester calendar on the last page of this document.
+Each quiz will cover the two most recent lectures.
+For example, Quiz \#1 will cover lectures 1--2 and Quiz \#5 will cover lectures 10--11.
+When calculating your quiz average, I will drop your two lowest scores and weight the remaining quizzes evenly. 
+There will be no makeup quizzes so be sure to use your two ``free skips'' carefully.
+%Quizzes will not be returned and answers will not be posted but, your RI will be happy to go over your quiz with you.
 
 \medskip
 
 \noindent \textbf{Exams:} 
 There will be two 70-minute in-class midterm exams and a 2-hour final exam during the exam period.
-Dates appear on the semester calendar on the last page of this document. 
+Dates appear on the last page of this document. 
 Each midterm is worth 20\% and the final is worth 30\% of your grade.
-Neither midterm is comprehensive, but the final is: it will focus on the final third of the course but include several questions on earlier material.
+All exams are comprehensive, but will focus on more recent material.
+%For example, the final will focus on the last third of the course.
 To give you a sense of the style and level of difficulty to expect, I have posted all of my past exams with full solutions on the \href{http://ditraglia.com/Econ103Public}{course website}.
 There will be no makeup midterms: if you miss one midterm, your final exam will be worth 50\% to compensate; if you miss two midterms, it will be worth 70\%.
-The makeup final will take place at the beginning of next semester and is outside of the instructor's control: eligibility as well as the time and date are determined by the Economics Department. 
+The makeup final will take place at the beginning of the Fall semester of 2019 and is outside of the instructor's control: the time and date are determined by the department, and eligibility is determined by the undergraduate chair.
+%Please be aware that travel plans at the end of the semester, job internships etc.\ are \emph{not} a valid reason for missing an exam.
+Note that registering for a course means that you certify that you will be present for the exam, unless one a small number of explicitly stated exceptions arises.
+These do \emph{not} include travel plans or job internships: see ``Departmental Course Policies'' above.
 Cheat sheets are not permitted on exams.
 Scientific calculators are allowed but graphing calculators are not. 
 You may write in pencil or pen on your exam as it will be photocopied before being returned to you.
-We will check ID cards at each exam.
+We will check ID cards at each exam, so make sure to bring yours.
+
+\medskip
+ 
+\noindent \textbf{Recitations:} Attendance at your assigned recitation section is mandatory. Your grade for this component of the course will be determined by your recitation instructor (RI) and will be based on attendance, participation, and successful completion of any R tutorials assigned prior to recitation. (See ``R Tutorials.'') Consult your RI for the specific policy for missed recitations.
 
 \medskip
 
@@ -302,27 +295,31 @@ You may not discuss your answers with an RI or the instructor before submitting 
 \medskip
 
 \noindent \textbf{Extra Credit:} 
-You can earn extra credit worth up to 5\% of your course grade for active in-class and online participation. 
-Participation will be added to your overall course score after averaging all course assignments.
-For example, if your overall weighted average on exams and quizzes is 83\%, your final score after factoring in extra credit will be between 83\% and 88\%, depending on how much extra credit you earn. 
-Extra credit will be awarded for constructive questions, answers, and notes on Piazza, as well as for attendance and participation in in-class polls and activities.
-This includes both lectures and recitations.
-Even if you post anonymously on Piazza, we can still award you extra credit for online participation.
-Extra credit is discretionary and will calculated at the end of the semester by the course instructor in consultation with your RI.
+You can earn extra credit worth up to 5\% of your course grade for active participation on the course discussion board, Piazza.
+Extra credit will be added to your overall course score after averaging all course assignments.
+For example, if your overall course grade is 83\%, your final score after factoring in extra credit will be between 83\% and 88\%.
+Extra credit will be awarded for constructive questions, answers, and notes on Piazza.
+Even if you post anonymously, we can still award you extra credit for online participation.
+Extra credit is discretionary and will calculated at the end of the semester.
 As such, there is no precise formula that we can provide you in advance.
 %Extra credit is intended as a modest reward for students who are taking the course seriously, regardless of whether they struggle or excel on quizzes and exams. 
 %Attempts to game the system are not worth the effort: use your time to study instead.
 
-\section*{Installing R and RStudio} First, download and install R from \url{http://cran.r-project.org/}. Second, download and install RStudio by visiting \url{http://rstudio.org/download/desktop} and clicking the link listed under ``Recommended for Your System.'' 
-If you have trouble, ask your RI or the instructor for help in office hours.
-Here are links to some additional free resources to help you learn R:
-\begin{itemize}
-		       \item \url{http://cran.r-project.org/other-docs.html}
-\item \url{http://www.twotorials.com/}
-			\item \url{http://www.r-bloggers.com/google-developers-r-programming-video-lectures/}
-		 	\item \url{http://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf}
- 			\item \url{http://www.ats.ucla.edu/stat/R/}
-\end{itemize}
+%\section*{Installing R and RStudio} 
+%N.B.\ these instructions will only work if you complete them in the \emph{correct order}.
+%First, download and install R from \url{http://cran.r-project.org/}. 
+%Next download and install RStudio by visiting \url{http://rstudio.org/download/desktop} and clicking the link listed under ``Recommended for Your System.'' 
+%If you have trouble, post on Piazza or ask your RI or the instructor for help in office hours.
+%As mentioned above, you will receive a free premium subscription to \href{http://datacamp.com}{DataCamp} as part of the course.
+%DataCamp contains dozens of interactive online R tutorials, some of which will be assigned as homework for the course.
+%Here are links to some additional free resources to help you learn R:
+%\begin{itemize}
+%		       \item \url{http://cran.r-project.org/other-docs.html}
+%\item \url{http://www.twotorials.com/}
+%			\item \url{http://www.r-bloggers.com/google-developers-r-programming-video-lectures/}
+%		 	\item \url{http://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf}
+% 			\item \url{http://www.ats.ucla.edu/stat/R/}
+%\end{itemize}
 
 
 \newpage
@@ -332,52 +329,59 @@ Here are links to some additional free resources to help you learn R:
 
 \begin{center}
 \small
-\begin{calendar}{1/8/2018}{16} %Date of Monday in first week of classes, NOT the date of the first class!
+\begin{calendar}{1/14/2019}{16} %Date of Monday in first week of classes, NOT the date of the first class!
 \setlength{\calboxdepth}{.25in}
 \TRClass
 % schedule
-\caltexton{1}{Introduction \hfill \fbox{\emph{No Recitations 1/12 or 1/15}}}
+\caltexton{1}{Introduction \hfill \fbox{\emph{No Recitations 1/18 or 1/21}}}
 \caltextnext{Summary Statistics I} 
 \caltextnext{Summary Statistics II \hfill\quiz} 
 \caltextnext{Regression I}
 \caltextnext{Basic Probability I \hfill\quiz}
-\caltextnext{Basic Probability II}
+\caltextnext{Basic Probability II} 
 \caltextnext{Basic Probability III / Discrete RVs I \hfill\quiz}
 \caltextnext{Discrete RVs II}
-\caltextnext{Discrete RVs III}  
-\caltextnext{Discrete RVs IV \hfill\quiz} 
+%\caltextnext{\emph{Reserve Lecture} \hfill\quiz}
+\caltextnext{Discrete RVs III \hfill\quiz} 
+\caltextnext{Discrete RVs IV} 
 \caltextnext{Continuous RVs I} 
 \caltextnext{Continuous RVs II \hfill\quiz} 
 \caltextnext{Sampling Dists.\ \& Estimation I}
 \caltextnext{Sampling Dists.\ \& Estimation II \hfill\quiz} 
 \caltextnext{Confidence Intervals I}
 \caltextnext{Confidence Intervals II \hfill\quiz} 
-\caltextnext{Confidence Intervals III}
-\caltextnext{Hypothesis Testing I}
-\caltextnext{Hypothesis Testing II\hfill\quiz} 
-\caltextnext{Hypothesis Testing III}
-\caltextnext{Statistical Power \hfill\quiz}
-\caltextnext{Regression II} 
-\caltextnext{Regression III \hfill\quiz}
-\caltextnext{Additional Topics TBA}
+\caltextnext{Confidence Intervals III} 
+%\caltextnext{Confidence Intervals IV \hfill\quiz}
+\caltextnext{Hypothesis Testing I \hfill\quiz}
+\caltextnext{Hypothesis Testing II} 
+\caltextnext{Hypothesis Testing III} 
+\caltextnext{Hypothesis Testing IV\hfill\quiz} 
+\caltextnext{Statistical Power}
+\caltextnext{Regression II \hfill\quiz} 
+\caltextnext{Regression III} 
+\caltextnext{Reserve Lecture \hfill\quiz}
+\caltextnext{Reserve Lecture} 
 % ... and so on
 
 % Holidays
-\Holiday{1/9/2018}{\textbf{Winter Break -- No Lecture}}
-\Holiday{1/18/2018}{\textbf{R/RStudio Clinic instead of Lecture}} 
-\Holiday{3/6/2018}{\textbf{Spring Break -- No Lecture}}
-\Holiday{3/8/2018}{\textbf{Spring Break -- No Lecture}}
+\Holiday{1/15/2019}{\textbf{Winter Break -- No Lecture}}
+%\Holiday{1/18/2018}{\textbf{R/RStudio Clinic instead of Lecture}} 
+\Holiday{3/5/2019}{\textbf{Spring Break -- No Lecture}}
+\Holiday{3/7/2019}{\textbf{Spring Break -- No Lecture}}
 
-\options{2/13/2018}{\noclassday} % first midterm exam
-\caltext{2/13/2018}{\shadowbox{\textbf{Midterm I} -- Material through Feb.\ 8th}}
-\options{3/27/2018}{\noclassday} %second midterm exam
-\caltext{3/27/2018}{\shadowbox{\textbf{Midterm II} -- Material through March\ 22nd}}
-\options{4/24/2018}{\noclassday} % finals
-\caltext{4/24/2018}{\textbf{Final Review Session instead of Lecture}}
-\options{4/26/2018}{\noclassday} % finals
-\caltext{4/26/2018}{\textbf{Reading Day -- No Lecture}}
+\options{2/19/2019}{\noclassday} % first midterm exam
+\caltext{2/19/2019}{\shadowbox{\textbf{Midterm I} -- Material through Feb.\ 14th}}
+\options{4/2/2019}{\noclassday} %second midterm exam
+\caltext{4/2/2019}{\shadowbox{\textbf{Midterm II} -- Material through March 28th}}
+%\options{4/24/2019}{\noclassday} % finals
+%\caltext{4/24/2019}{\textbf{Final Review Session instead of Lecture}}
+\options{5/2/2019}{\noclassday} % finals
+\caltext{5/2/2019}{\textbf{Reading Day -- No Lecture}}
 \end{calendar}
 \end{center}
 
+
+\noindent \textbf{Final Exam:} At the time of this writing (\today) the final exam for Econ 103 is scheduled for \href{https://www.registrar.upenn.edu/pdf_main/19A_Final_Exam_Tentative_01102019.pdf}{Tuesday, May 14\textsuperscript{th} at noon}, but this is subject to change.
+Final confirmation of final times, along with room assignments, will be posted on the \href{https://www.registrar.upenn.edu/finals/index.html}{Registrar's Website} in April.
 
 \end{document}

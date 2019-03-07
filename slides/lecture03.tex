@@ -14,25 +14,25 @@
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Outliers, Skewness, \& Symmetry}
+\section{Skewness \& Symmetry}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-\frametitle{Variance is Sensitive to Skewness and Outliers}
-\framesubtitle{And so is Standard Deviation!}
-\begin{center}\fbox{$\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2$}\end{center}
-
-
-\begin{block}{Outliers}
-Differentiate with respect to $(x_i-\bar{x})\Rightarrow$ the farther an observation is from the mean, the \emph{larger} its effect on the variance.
-\end{block}
-
-
-\begin{block}{Skewness}
-Variance measures average squared distance from center, taking \alert{mean} as the center, but the mean is sensitive to skewness!
-\end{block}
-
-\end{frame}
+%\begin{frame}
+%\frametitle{Variance is Sensitive to Skewness and Outliers}
+%\framesubtitle{And so is Standard Deviation!}
+%\begin{center}\fbox{$\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2$}\end{center}
+%
+%
+%\begin{block}{Outliers}
+%Differentiate with respect to $(x_i-\bar{x})\Rightarrow$ the farther an observation is from the mean, the \emph{larger} its effect on the variance.
+%\end{block}
+%
+%
+%\begin{block}{Skewness}
+%Variance measures average squared distance from center, taking \alert{mean} as the center, but the mean is sensitive to skewness!
+%\end{block}
+%
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -50,45 +50,103 @@ Variance measures average squared distance from center, taking \alert{mean} as t
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \small
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Load Survey Data}
+\hlstd{data_url} \hlkwb{<-} \hlstr{'http://ditraglia.com/econ103/old_survey.csv'}
+\hlstd{survey} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(data_url)}
 
+\hlcom{# A Function to Calculate Skewness}
+\hlstd{get_skewness} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{) \{}
+  \hlstd{x} \hlkwb{<-} \hlkwd{na.omit}\hlstd{(x)}
+  \hlstd{n} \hlkwb{<-} \hlkwd{length}\hlstd{(x)}
+  \hlstd{xbar} \hlkwb{<-} \hlkwd{mean}\hlstd{(x)}
+  \hlstd{s} \hlkwb{<-} \hlkwd{sd}\hlstd{(x)}
+  \hlstd{skewness} \hlkwb{<-} \hlkwd{sum}\hlstd{((x} \hlopt{-} \hlstd{xbar)}\hlopt{^}\hlnum{3}\hlstd{)} \hlopt{/} \hlstd{(n} \hlopt{*} \hlstd{s}\hlopt{^}\hlnum{3}\hlstd{)}
+  \hlkwd{return}\hlstd{(skewness)}
+\hlstd{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \footnotesize
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Handedness is left-skewed, handspan is symmetric}
+\hlkwd{c}\hlstd{(}\hlkwd{get_skewness}\hlstd{(survey}\hlopt{$}\hlstd{handedness),} \hlkwd{get_skewness}\hlstd{(survey}\hlopt{$}\hlstd{handspan))}
+\end{alltt}
+\begin{verbatim}
+## [1] -2.21905550  0.04331997
+\end{verbatim}
+\begin{alltt}
+\hlkwd{par}\hlstd{(}\hlkwc{mfrow} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,} \hlnum{2}\hlstd{))}
+\hlkwd{hist}\hlstd{(survey}\hlopt{$}\hlstd{handedness,} \hlkwc{main} \hlstd{=} \hlstr{'Handedness'}\hlstd{,} \hlkwc{xlab} \hlstd{=} \hlstr{'Handedness Score'}\hlstd{)}
+\hlkwd{hist}\hlstd{(survey}\hlopt{$}\hlstd{handspan,} \hlkwc{main} \hlstd{=} \hlstr{'Handspan'}\hlstd{,} \hlkwc{xlab} \hlstd{=} \hlstr{'Handspan (cm)'}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/skewness_comparison-1} 
+\begin{kframe}\begin{alltt}
+\hlkwd{par}\hlstd{(}\hlkwc{mfrow} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,} \hlnum{1}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{frame}
-\centering \includegraphics[scale = 0.75]{./images/handspan_skew}
-
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame}
-\centering \includegraphics[scale = 0.75]{./images/handedness_skew}
-
-
-\end{frame}
+%\begin{frame}
+%\centering \includegraphics[scale = 0.75]{./images/handspan_skew}
+%
+%
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\begin{frame}
+%\centering \includegraphics[scale = 0.75]{./images/handedness_skew}
+%
+%
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sample versus Population, Empirical Rule}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Essential Distinction: Sample vs.\ Population}
-For now, you can think of the population as a list of $N$ objects:\\
-	\alert{$\mbox{Population: }x_1, x_2, \hdots, x_N$}\\
-from which we draw a sample of size $n<N$ objects:\\
-	\alert{$\mbox{Sample: } x_1, x_2, \hdots, x_n$}
-\pause
-\vspace{3em}
-\begin{alertblock}{Important Point:}
-Later in the course we'll be more formal by considering \alert{probability models} that represent the \alert{\emph{act of sampling}} from a population rather than thinking of a population as a list of objects. Once we do this we will no longer use the notation $N$ as the population will be \alert{\emph{conceptually infinite}}.
-\end{alertblock}
-\end{frame}
+%\begin{frame}
+%\frametitle{Essential Distinction: Sample vs.\ Population}
+%For now, you can think of the population as a list of $N$ objects:\\
+%\hspace{1em}\alert{$\mbox{Population: }x_1, x_2, \hdots, x_N$}\\
+%from which we draw a sample of size $n<N$ objects:\\
+%\hspace{1em}\alert{$\mbox{Sample: } x_1, x_2, \hdots, x_n$}
+%\pause
+%\vspace{3em}
+%\begin{alertblock}{Important Point:}
+%Later in the course we'll be more formal by considering \alert{probability models} that represent the \alert{\emph{act of sampling}} from a population rather than thinking of a population as a list of objects. Once we do this we will no longer use the notation $N$ as the population will be \alert{\emph{conceptually infinite}}.
+%\end{alertblock}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 
-\frametitle{Essential Distinction: Parameter vs.\ Statistic}
-$N$ individuals in the Population, $n$ individuals in the Sample:
+\frametitle{Sample vs.\ Population and Parameter vs.\ Statistic}
+%$N$ individuals in the Population, $n$ individuals in the Sample:
+
+\begin{block}{Sample vs.\ Population}
+  For now, think of the \alert{population} as a list of $N$ objects
+  $(x_1, x_2, \hdots, x_N)$ from which we draw a \alert{sample} of $n<N$ objects.
+\end{block}
+
+\begin{block}{Parameter vs.\ Statistic}
+  Use a sample to calculate \alert{statistics} (e.g.\ $\bar{x}$, $s^2$, $s$) that estimate the corresponding population \alert{parameters} (e.g.\ $\mu$, $\sigma^2$, $\sigma$).
+\end{block}
 
 \vspace{1em}
 \small
@@ -97,31 +155,26 @@ $N$ individuals in the Population, $n$ individuals in the Sample:
 	\hline
 	Mean&$\displaystyle\mu = \frac{1}{N} \sum_{i=1}^N x_i$& $\displaystyle\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i$ \\
 	Var.\ &$\displaystyle \sigma^2 = \frac{1}{N}\sum_{i=1}^N (x_i - \mu)^2$ &$\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2$\\
-	S.D.\ &$\sigma = \sqrt{\sigma^2}$ &$s = \sqrt{s^2}$ \\
-	&&
+	S.D.\ &$\sigma = \sqrt{\sigma^2}$ &$s = \sqrt{s^2}$
 \end{tabular}
 
-\vspace{2em}
-\begin{alertblock}{Key Point}
-We  use a \alert{sample} $x_1, \hdots, x_n$ to calculate \alert{statistics} (e.g.\ $\bar{x}$, $s^2$, $s$) that serve as \alert{estimates} of the corresponding population \alert{parameters} (e.g.\ $\mu$, $\sigma^2$, $\sigma$).
-\end{alertblock}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Why Do Sample Variance and Std.\ Dev.\ Divide by $n-1$? }
-\footnotesize
-\fbox{\begin{tabular}{ll|ll}
-Pop.\ Var.\ &$\displaystyle \sigma^2 = \frac{1}{N}\sum_{i=1}^N (x_i - \mu)^2$&Sample Var.\ &$\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2$\\
-\hline
-Pop.\ S.D.\ &$\sigma = \sqrt{\sigma^2}$ &Sample S.D.\ &$s = \sqrt{s^2}$ \\
-\end{tabular}}
-\normalsize
-
-\vspace{3em}
-\alert{There is an important reason for this, but explaining it requires some concepts we haven't learned yet. }
-
-\end{frame}
-
+%\begin{frame}
+%\frametitle{Why Do Sample Variance and Std.\ Dev.\ Divide by $n-1$? }
+%\footnotesize
+%\fbox{\begin{tabular}{ll|ll}
+%Pop.\ Var.\ &$\displaystyle \sigma^2 = \frac{1}{N}\sum_{i=1}^N (x_i - \mu)^2$&Sample Var.\ &$\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2$\\
+%\hline
+%Pop.\ S.D.\ &$\sigma = \sqrt{\sigma^2}$ &Sample S.D.\ &$s = \sqrt{s^2}$ \\
+%\end{tabular}}
+%\normalsize
+%
+%\vspace{3em}
+%\alert{There is an important reason for this. Later in the course we'll be able to explain it.} 
+%
+%\end{frame}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Why Mean and Variance (and Std.\ Dev.\ )?}
@@ -135,9 +188,7 @@ For large populations that are approximately bell-shaped, std.\ dev.\ tells wher
 \end{alertblock}
 \pause
 
-\begin{block}{Therefore}
-We will be interested in $\bar{x}$ as an estimate of $\mu$ and $s$ as an estimate of $\sigma$ since these population parameters are so informative.
-\end{block}
+\alert{This isa key reason why we will be interested in $\bar{x}$ as an estimate of $\mu$ and $s$ as an estimate of $\sigma$.}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Centering, Standardizing, \& Z-Scores}
@@ -217,10 +268,15 @@ Measures how ``extreme'' one observation is relative to the others.
 \begin{frame}
 \frametitle{What is the sample mean of the z-scores?}
 \begin{eqnarray*}
- \bar{z} &=& \frac{1}{n}\sum_{i=1}^n z_i \pause= \frac{1}{n} \sum_{i=1}^n \frac{x_i - \bar{x}}{s}= \pause\frac{1}{n\cdot s} \left[\sum_{i=1}^n x_i  - \sum_{i=1}^n \bar{x}  \right]\\ \\
- &=& \pause\frac{1}{n\cdot s} \left[\sum_{i=1}^n x_i  - n\bar{x}  \right] = \pause\frac{1}{n\cdot s} \left[\sum_{i=1}^n x_i - n\cdot \frac{1}{n} \sum_{i=1}^n x_i  \right] \\ \\
- 	&=&\pause \frac{1}{n\cdot s} \left[\sum_{i=1}^n x_i -  \sum_{i=1}^n x_i  \right]  = \pause 0
+\bar{z} &=& \frac{1}{n}\sum_{i=1}^n z_i = \frac{1}{n} \sum_{i=1}^n \frac{x_i - \bar{x}}{s}= \frac{1}{n\cdot s} \sum_{i=1}^n (x_i - \bar{x}) = 0
 \end{eqnarray*}
+%\begin{eqnarray*}
+% \bar{z} &=& \frac{1}{n}\sum_{i=1}^n z_i \pause= \frac{1}{n} \sum_{i=1}^n \frac{x_i - \bar{x}}{s}= \pause\frac{1}{n\cdot s} \left[\sum_{i=1}^n x_i  - \sum_{i=1}^n \bar{x}  \right]\\ \\
+% &=& \pause\frac{1}{n\cdot s} \left[\sum_{i=1}^n x_i  - n\bar{x}  \right] = \pause\frac{1}{n\cdot s} \left[\sum_{i=1}^n x_i - n\cdot \frac{1}{n} \sum_{i=1}^n x_i  \right] \\ \\
+% 	&=&\pause \frac{1}{n\cdot s} \left[\sum_{i=1}^n x_i -  \sum_{i=1}^n x_i  \right]  = \pause 0
+%\end{eqnarray*}
+
+\alert{\dots using the same argument as on Slide 2 of this lecture!}
 \end{frame}
 
 
@@ -244,14 +300,14 @@ Measures how ``extreme'' one observation is relative to the others.
 
 \begin{frame}
 \frametitle{Population Z-scores and the Empirical Rule: $\mu \pm 2\sigma$}
-If we knew the population mean $\mu$ and standard deviation $\sigma$ we could create a \alert{\emph{population version}} of a z-score. This leads to an important way of rewriting the Empirical Rule:
+If $\mu$ and $\sigma$ were known, we could create a \alert{\emph{population version}} of a z-score. This lets us re-write the Empirical Rule as follows:
 
 \pause
 \vspace{2em}
 \alert{Bell-shaped population $\Rightarrow$ approx.\ 95\% of observations $x_i$ satisfy}
 \begin{eqnarray*}
-\mu - 2\sigma \leq x_i \leq \mu + 2\sigma\\\pause
--2 \sigma \leq x_i -\mu \leq 2\sigma\\\pause
+\mu - 2\sigma \leq x_i \leq \mu + 2\sigma\\ \\
+%-2 \sigma \leq x_i -\mu \leq 2\sigma\\
 -2 \leq \frac{x_i - \mu}{\sigma} \leq 2
 \end{eqnarray*}
 
@@ -260,50 +316,75 @@ If we knew the population mean $\mu$ and standard deviation $\sigma$ we could cr
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Relating Two Variables: Cross-tabs, Covariance, \& Correlation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\begin{center}
-	\Huge Relationships Between Variables
-\end{center}
-
-\end{frame}
-
+%\begin{frame}
+%\begin{center}
+%	\Huge Relationships Between Variables
+%\end{center}
+%
+%\end{frame}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
+%\begin{frame}
+%\frametitle{Crosstabs -- Show Relationship between Categorical Vars.}
+%\framesubtitle{(aka Contingency Tables)}
+%\begin{table}
+%\centering
+%\begin{tabular}{l|rr|r}
+%	\emph{Eye Color} & \multicolumn{2}{|c|}{\emph{Sex}}\\
+%	& Male & Female & Total\\
+%	\hline
+%	Black&5&2&7\\
+%	Blue&6&4&10\\
+%	Brown&26&31&57\\
+%	Copper&1&0&1\\
+%	Dark Brown&0&1&1\\
+%	Green&4&1&5\\
+%	Hazel&2&2&4\\
+%	Maroon&1&0&1\\
+%	\hline
+%	Total&45&41&86
+%\end{tabular}
+%\end{table}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
 \frametitle{Crosstabs -- Show Relationship between Categorical Vars.}
-\framesubtitle{(aka Contingency Tables)}
-\begin{table}
-\centering
-\begin{tabular}{l|rr|r}
-	\emph{Eye Color} & \multicolumn{2}{|c|}{\emph{Sex}}\\
-	& Male & Female & Total\\
-	\hline
-	Black&5&2&7\\
-	Blue&6&4&10\\
-	Brown&26&31&57\\
-	Copper&1&0&1\\
-	Dark Brown&0&1&1\\
-	Green&4&1&5\\
-	Hazel&2&2&4\\
-	Maroon&1&0&1\\
-	\hline
-	Total&45&41&86
-\end{tabular}
-\end{table}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
+\small
 
-\vspace{3em}
-\huge \centering Example with Crosstab in \emph{Percents}
-
-
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{table}\hlstd{(survey}\hlopt{$}\hlstd{eye.color, survey}\hlopt{$}\hlstd{sex)}
+\end{alltt}
+\begin{verbatim}
+##         
+##          Female Male
+##   Black       2    5
+##   Blue        4    6
+##   Brown      32   26
+##   Copper      0    1
+##   Green       1    4
+##   Hazel       2    2
+##   Maroon      0    1
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 
 \end{frame}
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%
+%\vspace{3em}
+%\huge \centering Example with Crosstab in \emph{Percents}
+%
+%
+%
+%\end{frame}
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Who Supported the Vietnam War?}
@@ -343,14 +424,14 @@ Please respond with your remote.
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{From The Economist --``Lexington,'' October 4th, 2001}
-\begin{quote}
- ``Back in the Vietnam days, the anti-war movement spread from the intelligentsia into the rest of the population, eventually paralyzing the country's will to fight.''
-\end{quote}
-
-\end{frame}
-
+%\begin{frame}
+%\frametitle{From The Economist --``Lexington,'' October 4th, 2001}
+%\begin{quote}
+% ``Back in the Vietnam days, the anti-war movement spread from the intelligentsia into the rest of the population, eventually paralyzing the country's will to fight.''
+%\end{quote}
+%
+%\end{frame}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -362,17 +443,17 @@ Please respond with your remote.
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\begin{center}
- \Huge What about numeric data?
-\end{center}
-\end{frame}
+%\begin{frame}
+%\begin{center}
+% \Huge What about numeric data?
+%\end{center}
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Covariance and Correlation: Linear Dependence Measures}
 
 \begin{block}{Two Samples of Numeric Data}
-$x_1, \hdots, x_n$ and $y_1, \hdots, y_n$
+  $x_1, \hdots, x_n$ and $y_1, \hdots, y_n$ with means $(\bar{x}, \bar{y})$ and std.\ devs.\ $(s_x, s_y)$
 \end{block}
 
 \begin{block}{Dependence}
@@ -386,17 +467,17 @@ Use the idea of centering and standardizing to decide what ``big'' or ``small'' 
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Notation}
-
-	\begin{eqnarray*}
-		\bar{x} &=& \frac{1}{n} \sum_{i=1}^n x_i\\
-		\bar{y} &=& \frac{1}{n} \sum_{i=1}^n y_i\\
-		s_x &=& \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i-\bar{x})^2}\\
-		s_y &=& \sqrt{\frac{1}{n-1} \sum_{i=1}^n (y_i-\bar{y})^2}
-	\end{eqnarray*}
-
-\end{frame}
+%\begin{frame}
+%\frametitle{Notation}
+%
+%	\begin{eqnarray*}
+%		\bar{x} &=& \frac{1}{n} \sum_{i=1}^n x_i\\
+%		\bar{y} &=& \frac{1}{n} \sum_{i=1}^n y_i\\
+%		s_x &=& \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i-\bar{x})^2}\\
+%		s_y &=& \sqrt{\frac{1}{n-1} \sum_{i=1}^n (y_i-\bar{y})^2}
+%	\end{eqnarray*}
+%
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Covariance}
@@ -427,10 +508,26 @@ Use the idea of centering and standardizing to decide what ``big'' or ``small'' 
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\Large \alert{We'll have more to say about correlation and covariance when we discuss linear regression.}
+\begin{frame}[fragile]
+  \frametitle{Height and Handspan: Strongly Positively Associated}
+  \small
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{cov}\hlstd{(survey}\hlopt{$}\hlstd{height, survey}\hlopt{$}\hlstd{handspan,} \hlkwc{use} \hlstd{=} \hlstr{'complete.obs'}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 5.910786
+\end{verbatim}
+\begin{alltt}
+\hlkwd{cor}\hlstd{(survey}\hlopt{$}\hlstd{height, survey}\hlopt{$}\hlstd{handspan,} \hlkwc{use} \hlstd{=} \hlstr{'complete.obs'}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.6042423
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 \end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 

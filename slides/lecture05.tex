@@ -169,37 +169,107 @@ Probability  = Long-run Relative Frequency
 \alert{That is, relative frequencies settle down to probabilities if we carry out an experiment over, and over, and over...}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
+\begin{frame}[fragile]
+  \frametitle{Rolling a Fair, Six-Sided Die in R}
+  \small
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Function to plot relative frequencies}
+\hlstd{plot_freq} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)\{}
+  \hlstd{n} \hlkwb{<-} \hlkwd{length}\hlstd{(x)}
+  \hlstd{rel_freq} \hlkwb{<-} \hlkwd{prop.table}\hlstd{(}\hlkwd{table}\hlstd{(x))}
+  \hlkwd{plot}\hlstd{(rel_freq,} \hlkwc{ylab} \hlstd{=} \hlstr{'Relative Frequency'}\hlstd{,}
+       \hlkwc{xlab} \hlstd{=} \hlkwd{bquote}\hlstd{(n} \hlopt{==} \hlkwd{.}\hlstd{(n)))}
+\hlstd{\}}
 
-\centering
-\includegraphics[scale = 0.7]{./images/die1}
-
+\hlcom{# Roll a fair die 1 Million times}
+\hlkwd{set.seed}\hlstd{(}\hlnum{1234567890}\hlstd{)}
+\hlstd{dice} \hlkwb{<-} \hlkwd{sample}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{6}\hlstd{,} \hlkwc{size} \hlstd{=} \hlnum{1e6}\hlstd{,} \hlkwc{replace} \hlstd{=} \hlnum{TRUE}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{plot_freq}\hlstd{(dice[}\hlnum{1}\hlopt{:}\hlnum{10}\hlstd{])}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/dice_10-1} 
 
-\begin{frame}
-
-\centering
-\includegraphics[scale = 0.7]{./images/die2}
-
+\end{knitrout}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{plot_freq}\hlstd{(dice[}\hlnum{1}\hlopt{:}\hlnum{50}\hlstd{])}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/dice_50-1} 
 
-\begin{frame}
-
-\centering
-\includegraphics[scale = 0.7]{./images/die3}
-
+\end{knitrout}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{plot_freq}\hlstd{(dice[}\hlnum{1}\hlopt{:}\hlnum{1000}\hlstd{])}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/dice_1000-1} 
 
-\begin{frame}
-
-\centering
-\includegraphics[scale = 0.7]{./images/die4}
-
+\end{knitrout}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{plot_freq}\hlstd{(dice)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/dice_1million-1} 
+
+\end{knitrout}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%
+%\centering
+%\includegraphics[scale = 0.7]{./images/die1}
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%
+%\centering
+%\includegraphics[scale = 0.7]{./images/die2}
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%
+%\centering
+%\includegraphics[scale = 0.7]{./images/die3}
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%
+%\centering
+%\includegraphics[scale = 0.7]{./images/die4}
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -315,6 +385,8 @@ $\{(1,1), (1,2), (2,1)\}$
       \draw (-0.2,0.3) node [text=black,above] {$O_3$};
 \end{tikzpicture}
 \end{figure}
+
+\alert{The event $E$ contains the basic outcomes $O_3$ and $O_2$ but not $O_1$.}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -530,19 +602,19 @@ $48/\displaystyle{52 \choose 5} \approx 0.00002$
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Poker -- Deal 5 Cards, Order Doesn't Matter}
-\begin{block}{What is the probability of getting 4 of a kind?}
-	\begin{itemize}
-		\item 13 ways to choose \emph{which} card we have four of
-		\item 48 ways to choose the last card in the hand 
-		\item $13 \times 48 = \alert{624}$ 
-	\end{itemize}
-\end{block}
-\vspace{0.3em} 
-$624/\displaystyle{52 \choose 5} \approx 0.00024$
-
-\end{frame}
+%\begin{frame}
+%\frametitle{Poker -- Deal 5 Cards, Order Doesn't Matter}
+%\begin{block}{What is the probability of getting 4 of a kind?}
+%	\begin{itemize}
+%		\item 13 ways to choose \emph{which} card we have four of
+%		\item 48 ways to choose the last card in the hand 
+%		\item $13 \times 48 = \alert{624}$ 
+%	\end{itemize}
+%\end{block}
+%\vspace{0.3em} 
+%$624/\displaystyle{52 \choose 5} \approx 0.00024$
+%
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{A Fairly Ridiculous Example \hfill \includegraphics[scale = 0.05]{./images/clicker}}
